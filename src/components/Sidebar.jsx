@@ -35,7 +35,7 @@ className={`
 
 
     >
-      <div className="h-full flex flex-col gap-6 justify-center">
+      <div className="h-full w-[50v] flex flex-col gap-6 ">
         <div className="py-6">
           <img src={user.imageUrl} alt="User" className="w-14 rounded-full mx-auto" />
           <h1 className="mt-2 text-center text-white text-sm">{user.fullName}</h1>
