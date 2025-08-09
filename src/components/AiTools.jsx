@@ -67,7 +67,7 @@ const AiTools = () => {
 
   return (
     <div className="py-10 sm:py-16 px-4 sm:px-10 xl:px-20">
-      <div className="max-w-screen-2xl mx-auto">
+      <div className="">
         {/* Header */}
         <header className="text-center">
           <h2 className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">
