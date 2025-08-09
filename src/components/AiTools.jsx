@@ -77,7 +77,7 @@ const AiTools = () => {
           <h2 className="text-4xl sm:text-5xl font-bold  text-slate-400 bg-clip-text animate-gradient">
             Our AI Tools
           </h2>
-          <p className="text-gray-600 dark:text-gray-300 mt-4 text-base sm:text-lg max-w-xl mx-auto">
+          <p className="text-gray-600 mt-4 text-base sm:text-lg max-w-xl mx-auto">
             Discover various AI tools displayed in a dynamic, responsive layout crafted for modern web experiences.
           </p>
         </div>
