@@ -17,6 +17,7 @@
   z-index:10
 }
 
+
 /* Hide scrollbar for Chrome, Safari, and Opera */
 /* Hide scrollbar for Chrome, Safari, Opera */
 .scrollbar-hide::-webkit-scrollbar {
@@ -30,3 +31,10 @@
 }
 
 
+html {
+  scrollbar-width: none; /* Firefox */
+}
+
+html::-webkit-scrollbar {
+  display: none; /* Chrome, Edge, Safari */
+}
