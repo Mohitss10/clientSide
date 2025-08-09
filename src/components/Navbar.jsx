@@ -22,7 +22,7 @@ const Navbar = () => {
   <img
     src={assets.logo}
     alt="logo"
-    className="w-10"
+    className="w-8"
   />
   <span className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-blue-500 bg-clip-text text-transparent">
     AIMatrix
