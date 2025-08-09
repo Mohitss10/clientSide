@@ -76,7 +76,7 @@ const Dashboard = () => {
             Recent Creations
           </p>
 
-<div className="space-y-3 text-slate-100 h-[56vh] sm:h-[40vh] md:mx-4 md:h-[55.7vh] overflow-y-auto pr-2 scrollbar-hide">            {creations.map((item) => (
+<div className="space-y-3 text-slate-100 h-[50vh] sm:h-[40vh] md:mx-4 md:h-[55.7vh] overflow-y-auto pr-2 scrollbar-hide">            {creations.map((item) => (
               <CreationItem key={item.id} item={item} />
             ))}
           </div>
