@@ -1,149 +1,131 @@
-import React from 'react'
-import { FaBrain } from "react-icons/fa";
-import { useNavigate } from 'react-router-dom'
-import { useUser } from '@clerk/clerk-react'
-
-import { SquarePen, Hash, Image, Eraser, Scissors, FileText } from 'lucide-react'
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useUser } from "@clerk/clerk-react";
+import { SquarePen, Hash, Image, Eraser, Scissors, FileText } from "lucide-react";
 
 const aiToolsData = [
   {
-    title: 'AI Article Writer',
-    description: 'Generate high-quality, engaging articles on any topic with our AI writing technology.',
+    title: "AI Article Writer",
+    description: "Generate high-quality, engaging articles on any topic with our AI writing technology.",
     Icon: SquarePen,
-    path: '/ai/write-article',
-    colSpan: 'sm:col-span-1',
-    rowSpan: 'sm:row-span-2',
+    path: "/ai/write-article",
+    colSpan: "sm:col-span-1",
+    rowSpan: "sm:row-span-2",
   },
   {
-    title: 'Blog Title Generator',
-    description: 'Find the perfect, catchy title for your blog posts with our AI-powered generator.',
+    title: "Blog Title Generator",
+    description: "Find the perfect, catchy title for your blog posts with our AI-powered generator.",
     Icon: Hash,
-    path: '/ai/blog-titles',
-    colSpan: 'sm:col-span-1',
-    rowSpan: 'sm:row-span-1',
+    path: "/ai/blog-titles",
+    colSpan: "sm:col-span-1",
+    rowSpan: "sm:row-span-1",
   },
   {
-    title: 'AI Image Generation',
-    description: 'Create stunning visuals with our AI image generation tool, Experience the power of AI.',
+    title: "AI Image Generation",
+    description: "Create stunning visuals with our AI image generation tool.",
     Icon: Image,
-    path: '/ai/generate-images',
-    colSpan: 'sm:col-span-2',
-    rowSpan: 'sm:row-span-1',
+    path: "/ai/generate-images",
+    colSpan: "sm:col-span-2",
+    rowSpan: "sm:row-span-1",
   },
   {
-    title: 'Background Removal',
-    description: 'Effortlessly remove backgrounds from your images with our AI-driven tool.',
+    title: "Background Removal",
+    description: "Effortlessly remove backgrounds from your images with our AI-driven tool.",
     Icon: Eraser,
-    path: '/ai/remove-background',
-    colSpan: 'sm:col-span-1',
-    rowSpan: 'sm:row-span-1',
+    path: "/ai/remove-background",
+    colSpan: "sm:col-span-1",
+    rowSpan: "sm:row-span-1",
   },
   {
-    title: 'AIMatrix',
-    description: 'Elevate your workflow with intuitive AI tools.',
+    title: "AIMatrix",
+    description: "Elevate your workflow with intuitive AI tools.",
     Icon: Eraser,
-    colSpan: 'sm:col-span-2',
-    rowSpan: 'sm:row-span-1',
+    colSpan: "sm:col-span-2",
+    rowSpan: "sm:row-span-1",
   },
   {
-    title: 'Object Removal',
-    description: 'Remove unwanted objects from your images seamlessly with our AI object removal tool.',
+    title: "Object Removal",
+    description: "Remove unwanted objects from your images seamlessly.",
     Icon: Scissors,
-    path: '/ai/remove-object',
-    colSpan: 'sm:col-span-3',
-    rowSpan: 'sm:row-span-1',
+    path: "/ai/remove-object",
+    colSpan: "sm:col-span-3",
+    rowSpan: "sm:row-span-1",
   },
   {
-    title: 'Resume Reviewer',
-    description: 'Get your resume reviewed by AI to improve your chances of landing your dream job.',
+    title: "Resume Reviewer",
+    description: "Get your resume reviewed by AI to improve your chances of landing your dream job.",
     Icon: FileText,
-    path: '/ai/review-resume',
-    colSpan: 'sm:col-span-1',
-    rowSpan: 'sm:row-span-1',
+    path: "/ai/review-resume",
+    colSpan: "sm:col-span-1",
+    rowSpan: "sm:row-span-1",
   },
 ];
 
-
 const AiTools = () => {
-  const navigate = useNavigate()
-  const { user } = useUser()
+  const navigate = useNavigate();
+  const { user } = useUser();
 
   return (
-    <div className="py-6 sm:py-12 px-4 sm:px-20 xl:px-32">
-      <div className="mx-auto max-w-screen-2xl">
-
+    <section className="py-10 sm:py-16 px-4 sm:px-10 xl:px-20">
+      <div className="max-w-screen-2xl mx-auto">
         {/* Header */}
-        <div className="text-center py-6">
-          <h2 className="text-4xl sm:text-5xl font-bold  text-slate-400 bg-clip-text animate-gradient">
+        <header className="text-center">
+          <h2 className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">
             Our AI Tools
           </h2>
-          <p className="text-gray-600 mt-4 text-base sm:text-lg max-w-xl mx-auto">
-            Discover various AI tools displayed in a dynamic, responsive layout crafted for modern web experiences.
+          <p className="text-gray-300 mt-4 text-base sm:text-lg max-w-2xl mx-auto">
+            Discover powerful AI tools in a responsive, modern layout designed to boost your creativity and workflow.
           </p>
-        </div>
+        </header>
 
-        {/* Grid Container */}
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-[200px] md:auto-rows-[250px]">
+        {/* Tools Grid */}
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-[200px] md:auto-rows-[250px]">
           {aiToolsData.map((tool, index) => (
             <div
               key={index}
               onClick={() => user && tool.path && navigate(tool.path)}
-              className={`relative overflow-hidden p-6 rounded-2xl shadow-xl text-slate-400 transition-transform duration-300 hover:scale-105 backdrop-blur-md border border-white/20 ${tool.colSpan} ${tool.rowSpan} cursor-pointer`}
+              className={`relative overflow-hidden p-6 rounded-2xl shadow-lg transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl cursor-pointer border border-white/10 ${tool.colSpan} ${tool.rowSpan}`}
               style={{
                 background:
-                  tool.title === 'AIMatrix'
-                    ? 'linear-gradient(135deg, #c084fc, #ec4899, #3b82f6)' // custom gradient only for 'AIMatrix'
-                    : tool.bgImage
-                      ? undefined
-                      : `linear-gradient(135deg, ${tool.bg?.from}, ${tool.bg?.to})`,
+                  tool.title === "AIMatrix"
+                    ? "linear-gradient(135deg, #c084fc, #ec4899, #3b82f6)"
+                    : "linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))",
               }}
-
             >
-              {/* Background Image (if exists) */}
-              {tool.bgImage && (
-                <img
-                  src={tool.bgImage}
-                  alt={tool.title}
-                  className="absolute inset-0 w-full h-full object-cover rounded-2xl opacity-70"
-                />
-              )}
-
               {/* Overlay */}
-              <div className="absolute inset-0 bg-black/40 backdrop-blur-sm rounded-2xl" />
+              <div className="absolute inset-0 bg-black/30 backdrop-blur-sm rounded-2xl" />
 
               {/* Content */}
-              <div className="relative z-10">
+              <div className="relative z-10 flex flex-col justify-between h-full">
                 {/* Icon */}
+                {tool.title !== "AIMatrix" && (
+                  <tool.Icon className="text-purple-300 w-10 h-10 mb-4" />
+                )}
 
-                <div className="mb-4">
-                  <tool.Icon
-                    className={`text-white ${tool.title === 'AIMatrix' ? 'w-0 h-0' : 'w-10 h-10'}`}
-                  />
-                </div>
-
-                {/* Title + Description */}
+                {/* Title */}
                 <h3
-                  className={`${tool.title === 'AIMatrix' ? 'font-bold text-7xl' : 'text-lg'
-                    }`}
+                  className={`font-bold text-white ${
+                    tool.title === "AIMatrix" ? "text-4xl sm:text-5xl" : "text-lg"
+                  }`}
                 >
                   {tool.title}
                 </h3>
 
-
+                {/* Description */}
                 <p
-                  className={`text-white/90 ${tool.title === 'AIMatrix' ? 'text-2xl' : 'text-sm'
-                    }`}
+                  className={`mt-2 text-gray-300 ${
+                    tool.title === "AIMatrix" ? "text-lg sm:text-xl" : "text-sm"
+                  }`}
                 >
                   {tool.description}
                 </p>
-
               </div>
             </div>
           ))}
         </div>
       </div>
-    </div>
-  )
-}
+    </section>
+  );
+};
 
-export default AiTools
+export default AiTools;
