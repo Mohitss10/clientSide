@@ -15,11 +15,9 @@ import DarkVeil from './components/DarkVeil' // ✅ Import your background
 
 const App = () => {
   return (
-    <div className="relative min-h-screen overflow-hidden">
+    <div className="relative min-h-screen overflow-hidden bg-black/90">
       {/* ✅ Background Layer */}
-      <div className="fixed inset-0 -z-10">
-        <DarkVeil />
-      </div>
+
 
       {/* ✅ Foreground Content */}
       <Toaster />
