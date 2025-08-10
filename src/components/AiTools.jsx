@@ -70,7 +70,7 @@ const AiTools = () => {
       <div className="max-w-screen-2xl mx-auto">
         {/* Header */}
         <header className="text-center">
-          <h2 className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-slate-400">
+          <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-gray-300 via-gray-500 to-gray-800 bg-clip-text text-transparent">
             Our AI Tools
           </h2>
           <p className="text-gray-300 mt-4 text-base sm:text-lg max-w-2xl mx-auto">

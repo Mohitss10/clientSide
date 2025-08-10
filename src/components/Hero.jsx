@@ -45,12 +45,12 @@ const Hero = () => {
   const navigate = useNavigate();
 
   // Heading broken into words
-  const headingLine1 = "Design the future of your ideas".split(" ");
-  const headingLine2 = "with AI".split(" ");
+  const headingLine1 = "Explore cutting-edge AI tools to ".split(" ");
+  const headingLine2 = "transform your workflow".split(" ");
 
   return (
     <section className="relative text-white min-h-screen flex flex-col justify-center items-center overflow-hidden px-4 sm:px-20 xl:px-32">
-       
+
       {/* 💫 Animated glow background */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-1/2 left-1/2 w-[800px] h-[800px]  " />
@@ -64,25 +64,22 @@ const Hero = () => {
         animate="animate"
       >
         <h1 className="text-4xl sm:text-5xl md:text-7xl sm:mt-26 font-bold mx-auto leading-tight tracking-tight flex flex-wrap justify-center gap-x-3">
-          {headingLine1.map((word, idx) => (
+          {[...headingLine1, ...headingLine2].map((word, idx) => (
             <motion.span key={idx} variants={wordVariant}>
-              {word}
-            </motion.span>
-          ))}
-        </h1>
-        <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mx-auto leading-tight tracking-tight flex flex-wrap justify-center gap-x-3 mt-2">
-          {headingLine2.map((word, idx) => (
-            <motion.span key={idx} variants={wordVariant}>
-              <span className={
-                word.toLowerCase() === "ai" || word.toLowerCase() === "tools"
-                  ? "bg-gradient-to-r from-purple-400 via-pink-500 to-blue-500 bg-clip-text text-transparent"
-                  : ""
-              }>
+              <span
+                className={
+                  ["ai", "tools", "transform"].includes(word.toLowerCase())
+                    ? "bg-gradient-to-r from-blue-400 via-cyan-500 to-teal-500 bg-clip-text text-transparent"
+                    : ""
+
+                }
+              >
                 {word}
               </span>
             </motion.span>
           ))}
         </h1>
+
       </motion.div>
 
       {/* 📄 Subtext with soft fade-in */}

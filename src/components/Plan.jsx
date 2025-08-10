@@ -5,7 +5,7 @@ const Plan = () => {
   return (
     <section className=" z-20 pt-32 pb-24 px-4 sm:px-6 lg:px-8 ">
       <div className="max-w-3xl mx-auto text-center mb-12">
-        <h2 className="text-4xl font-bold text-slate-400 sm:text-5xl">
+        <h2 className="text-4xl font-bold bg-gradient-to-r from-gray-300 via-gray-500 to-gray-800 bg-clip-text text-transparent sm:text-5xl">
           Choose Your Plan
         </h2>
         <p className="mt-4 text-gray-300 text-base sm:text-lg">

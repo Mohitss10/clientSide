@@ -24,9 +24,9 @@ const Navbar = () => {
         <img
           src={assets.logo}
           alt="logo"
-          className="w-8"
+          className="w-7"
         />
-        <span className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-blue-500 bg-clip-text text-transparent neon-text">
+        <span className="bg-gradient-to-r from-gray-300 via-gray-400 to-gray-500 bg-clip-text text-transparent text-3xl">
           AIMatrix
         </span>
       </div>

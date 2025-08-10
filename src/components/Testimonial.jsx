@@ -117,7 +117,7 @@ const Testimonial = () => {
     return (
         <div className='px-4 sm:px-20 xl:px-32 py-24 relative overflow-hidden'>
             <div className='text-center'>
-                <h2 className='text-slate-400 text-[32px] sm:text-[42px] font-bold'>What Our Users Say</h2>
+                <h2 className='bg-gradient-to-r from-gray-300 via-gray-500 to-gray-800 bg-clip-text text-transparent text-[32px] sm:text-[42px] font-bold'>What Our Users Say</h2>
                 <p className='text-gray-300 max-w-lg mx-auto'>
                     Discover how creators and professionals are achieving more with our tools.
                 </p>
