@@ -51,7 +51,7 @@ const RemoveObject = () => {
   };
 
   return (
-    <div className="flex-1 overflow-y-auto bg-slate-950/10 p-4 scrollbar-hide">
+    <div className="flex-1 overflow-y-auto bg-slate-950/10 scrollbar-hide">
       <div className="flex flex-col lg:flex-row gap-6">
 
         {/* Left Column */}
