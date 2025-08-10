@@ -99,12 +99,41 @@ const Dashboard = () => {
           ))}
         </div>
       </div> */}
-      <div className='h-[70vh] sm:h-[63vh] mt-5'>
+      <div className='h-[43vh] sm:h-[63vh] mt-5'>
         <Community/>
       </div>
       
 
-      {/* Recent Creations */}
+      {/* Mobile Only */}
+<motion.button
+  className="mt-6 px-6 py-3 rounded-xl w-full  text-slate-300 bg-slate-800/30 font-medium shadow-lg hover:shadow-xl transition sm:hidden"
+  animate={{
+    y: [0, -8, 0, 8, 0],
+  }}
+  transition={{
+    duration: 2,
+    repeat: Infinity,
+    ease: "easeInOut",
+  }}
+>
+  Scroll to view more
+</motion.button>
+
+{/* Laptop & Above */}
+<motion.button
+  className="mt-6 px-6 py-3 rounded-xl w-full bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 text-white font-medium shadow-lg hover:shadow-xl transition hidden lg:block"
+  animate={{
+    y: [0, -8, 0, 8, 0],
+  }}
+  transition={{
+    duration: 2,
+    repeat: Infinity,
+    ease: "easeInOut",
+  }}
+>
+  Scroll to view more
+</motion.button>
+
 
 
 
