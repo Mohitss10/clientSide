@@ -57,30 +57,23 @@ const Hero = () => {
       </div>
 
       {/* 🧠 Headline animation */}
-      <motion.div
-        className="text-center mb-6"
-        variants={containerVariant}
-        initial="initial"
-        animate="animate"
-      >
+      {/* 🧠 Headline (no animation) */}
+      <div className="text-center mb-6">
         <h1 className="text-4xl bg-gradient-to-r from-gray-300 via-gray-500 to-gray-800 bg-clip-text text-transparent sm:text-5xl md:text-7xl sm:mt-26 font-medium mx-auto leading-tight sm:p-4 tracking-tight flex flex-wrap justify-center gap-x-3">
           {[...headingLine1, ...headingLine2].map((word, idx) => (
-            <motion.span key={idx} variants={wordVariant}>
-              <span
-                className={
-                  ["ai", "tools", "transform"].includes(word.toLowerCase())
-                    ? "bg-gradient-to-r from-blue-400 via-cyan-500 to-teal-500 bg-clip-text text-transparent"
-                    : ""
-
-                }
-              >
-                {word}
-              </span>
-            </motion.span>
+            <span
+              key={idx}
+              className={
+                ["ai", "tools", "transform"].includes(word.toLowerCase())
+                  ? "bg-gradient-to-r from-blue-400 via-cyan-500 to-teal-500 bg-clip-text text-transparent"
+                  : ""
+              }
+            >
+              {word}
+            </span>
           ))}
         </h1>
-
-      </motion.div>
+      </div>
 
       {/* 📄 Subtext with soft fade-in */}
       <motion.p

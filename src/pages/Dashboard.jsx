@@ -120,7 +120,7 @@ const Dashboard = () => {
 </motion.button>
 
 {/* Laptop & Above */}
-<motion.button
+{/* <motion.button
   className="mt-6 px-6 py-3 rounded-xl w-full bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 text-white font-medium shadow-lg hover:shadow-xl transition hidden lg:block"
   animate={{
     y: [0, -8, 0, 8, 0],
@@ -132,7 +132,7 @@ const Dashboard = () => {
   }}
 >
   Scroll to view more
-</motion.button>
+</motion.button> */}
 
 
 
