@@ -70,65 +70,62 @@ const AiTools = () => {
       <div className="max-w-screen-2xl mx-auto">
         {/* Header */}
         <header className="text-center">
-          <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-gray-300 via-gray-500 to-gray-800 bg-clip-text text-transparent">
-            Our AI Tools
+          <h2 className="text-4xl sm:text-5xl font-medium bg-gradient-to-r from-gray-300 via-gray-500 to-gray-800 bg-clip-text text-transparent">
+            Explore Tools
           </h2>
           <p className="text-gray-300 mt-4 text-base sm:text-lg max-w-2xl mx-auto">
             Discover powerful AI tools in a responsive, modern layout designed to boost your creativity and workflow.
           </p>
         </header>
+<div className="mt-12 block space-y-6 sm:grid sm:gap-6 sm:space-y-0 sm:grid-cols-2 lg:grid-cols-4 auto-rows-[200px] md:auto-rows-[250px]">  {aiToolsData.map((tool, index) => (
+    <div
+      key={index}
+      onClick={() => user && tool.path && navigate(tool.path)}
+      className={`relative overflow-hidden p-6 rounded-2xl shadow-lg transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl cursor-pointer border border-white/10 ${tool.colSpan} ${tool.rowSpan}`}
+      style={{
+        background:
+          tool.title === "AIMatrix"
+            ? "linear-gradient(135deg, #c084fc, #ec4899, #3b82f6)"
+            : "linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))",
+      }}
+    >
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-slate-700/30 backdrop-blur-sm rounded-2xl" />
 
-        {/* Tools Grid */}
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-[200px] md:auto-rows-[250px]">
-          {aiToolsData.map((tool, index) => (
-            <div
-              key={index}
-              onClick={() => user && tool.path && navigate(tool.path)}
-              className={`relative overflow-hidden p-6 rounded-2xl shadow-lg transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl cursor-pointer border border-white/10 ${tool.colSpan} ${tool.rowSpan}`}
-              style={{
-                background:
-                  tool.title === "AIMatrix"
-                    ? "linear-gradient(135deg, #c084fc, #ec4899, #3b82f6)"
-                    : "linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))",
-              }}
-            >
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-slate-700/30 backdrop-blur-sm rounded-2xl" />
+      {/* Content */}
+      <div>
+        {/* Empty? */}
+      </div>
+      <div className="relative z-10 flex flex-col justify-between h-full">
+        {/* Icon */}
+        {tool.title !== "AIMatrix" && (
+          <tool.Icon className="text-purple-300 w-10 h-10 mb-4" />
+        )}
 
-              {/* Content */}
-              <div>
-                
-              </div>
-              <div className="relative z-10 flex flex-col justify-between h-full">
-                {/* Icon */}
-                {tool.title !== "AIMatrix" && (
-                  <tool.Icon className="text-purple-300 w-10 h-10 mb-4" />
-                )}
+        {/* Title */}
+        <div>
+          <h3
+            className={`font-bold text-white ${
+              tool.title === "AIMatrix" ? "text-4xl sm:text-5xl" : "text-lg"
+            }`}
+          >
+            {tool.title}
+          </h3>
 
-                {/* Title */}
-                <div>
-                   <h3
-                  className={`font-bold text-white ${
-                    tool.title === "AIMatrix" ? "text-4xl sm:text-5xl" : "text-lg"
-                  }`}
-                >
-                  {tool.title}
-                </h3>
-
-                {/* Description */}
-                <p
-                  className={`mt-2 text-gray-300 ${
-                    tool.title === "AIMatrix" ? "text-lg sm:text-xl" : "text-sm"
-                  }`}
-                >
-                  {tool.description}
-                </p>
-                </div>
-               
-              </div>
-            </div>
-          ))}
+          {/* Description */}
+          <p
+            className={`mt-2 text-gray-300 ${
+              tool.title === "AIMatrix" ? "text-lg sm:text-xl" : "text-sm"
+            }`}
+          >
+            {tool.description}
+          </p>
         </div>
+      </div>
+    </div>
+  ))}
+</div>
+
       </div>
     </section>
   );

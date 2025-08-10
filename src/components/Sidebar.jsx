@@ -24,17 +24,17 @@ const Sidebar = ({ sidebar, setSidebar }) => {
   className={`
     fixed top-14 left-0 z-50
     h-[calc(100vh-55px)] sm:h-[86.9vh]
-    w-60 sm:w-60 sm:mt-4
-    rounded-3xl
-    lg:bg-transparent lg:backdrop-blur-none lg:border-none sm:ml-4
+    w-60 sm:w-60
+   
+    lg:bg-transparent lg:backdrop-blur-none lg:border-none
     p-4 sm:p-6
     transform ${sidebar ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'} 
     transition-all duration-500 ease-[cubic-bezier(.4,0,.2,1)]
-    sm:translate-x-0 sm:opacity-100 sm:static sm:block
+    sm:translate-x-0 sm:opacity-100 sm:static sm:block  flex justify-center
   `}
 >
 
-      <div className="h-full  flex flex-col">
+      <div className="h-full flex flex-col">
         <div className="py-6">
           <img src={user.imageUrl} alt="User" className="w-14 rounded-full mx-auto" />
           <h1 className="mt-2 text-center text-white text-sm">{user.fullName}</h1>

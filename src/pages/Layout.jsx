@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { assets } from '../assets/assets';
 import { Menu, X } from 'lucide-react';
@@ -10,6 +10,19 @@ const Layout = () => {
   const [sidebar, setSidebar] = useState(false);
   const { user } = useUser();
 
+  // Disable body scroll when sidebar is open on mobile
+  useEffect(() => {
+    if (sidebar) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [sidebar]);
+
   return user ? (
     <div className="flex flex-col h-screen">
       {/* Navbar */}
@@ -19,25 +32,30 @@ const Layout = () => {
           onClick={() => navigate('/')}
         >
           <img src={assets.logo} alt="logo" className="w-8" />
-          <span className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-blue-500 bg-clip-text text-transparent">
+          <span className="sm:text-3xl font-bold bg-gradient-to-r from-gray-300 via-gray-400 to-gray-500 bg-clip-text text-transparent text-3xl">
             AIMatrix
           </span>
         </div>
 
-        {/* Mobile Menu Icon */}
-        <Menu
-          onClick={() => setSidebar(true)}
-          className="h-6 w-6 text-white sm:hidden cursor-pointer"
-        />
+        {/* Mobile Menu Icon (only show when sidebar is closed) */}
+        {!sidebar && (
+          <Menu
+            onClick={() => setSidebar(true)}
+            className="h-6 w-6 text-white sm:hidden cursor-pointer"
+          />
+        )}
       </nav>
 
       {/* Body */}
       <div className="flex flex-1 overflow-hidden relative">
         {/* Sidebar */}
         <div
-          className={`fixed sm:static top-0 left-0 h-full z-50 
-          bg-slate-950/90 backdrop-blur-lg transition-transform duration-300 ease-in-out
-          ${sidebar ? 'translate-x-0 w-full sm:w-64' : '-translate-x-full sm:translate-x-0 sm:w-64'}`}
+          className={`
+            fixed top-0 left-0 h-full z-50 bg-slate-950/90 backdrop-blur-lg
+            transform transition-transform duration-300 ease-in-out
+            w-full sm:static sm:translate-x-0 sm:w-64
+            ${sidebar ? 'translate-x-0' : '-translate-x-full sm:translate-x-0'}
+          `}
         >
           {/* Close Button (Mobile only) */}
           <div className="sm:hidden flex justify-end p-4">
@@ -49,6 +67,14 @@ const Layout = () => {
 
           <Sidebar sidebar={sidebar} setSidebar={setSidebar} />
         </div>
+
+        {/* Overlay behind sidebar on mobile when open */}
+        {sidebar && (
+          <div
+            className="fixed inset-0 bg-black bg-opacity-50 z-40 sm:hidden"
+            onClick={() => setSidebar(false)}
+          />
+        )}
 
         {/* Main content */}
         <div className="flex-1 overflow-y-auto bg-slate-950/10 p-4 scrollbar-hide">
