@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Gem, Sparkles, ChevronDown, ChevronUp } from 'lucide-react';
+import { Gem, Sparkles, ChevronDown, ChevronUp, ChevronRight } from 'lucide-react';
 import { useAuth } from '@clerk/clerk-react';
 import CreationItem from '../components/CreationItem';
 import axios from 'axios';
@@ -51,7 +51,7 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="h-[87vh] lg:min-h-[70vh] w-full md:w-[70vw] lg:w-[80vw] border border-b-0 sm:border-b border-white/10 p-4 sm:p-2 bg-slate-700/10 backdrop-blur-sm rounded-2xl sm:rounded-3xl sm:mx-auto space-y-6">
+    <div className=" min-h-[90vh] border-white/10 lg:min-h-[85vh] sm:mx-auto overflow-y-auto scrollbar-hide border p-4 rounded-xl">
 
       {/* Card Section */}
       <div className="flex gap-4 overflow-x-auto sm:flex-wrap scrollbar-hide justify-center">
@@ -67,7 +67,8 @@ const Dashboard = () => {
         </div> */}
 
         {/* Active plan card */}
-        <div className="flex-shrink-0 flex justify-between items-center w-full sm:w-56 lg:w-[48%] p-4 sm:p-6 rounded-xl border border-white/10 backdrop-blur-lg shadow-md bg-slate-800/30">
+       <div className=" flex-shrink-0 flex justify-between items-center w-full lg:w-full p-4 sm:p-6 rounded-xl border border-white/10 backdrop-blur-lg shadow-md bg-slate-800/30">
+
           <div className="text-slate-100">
             <p className="text-sm opacity-80">Active Plan</p>
             <h2 className="text-xl font-semibold">
@@ -78,27 +79,27 @@ const Dashboard = () => {
             <Gem className="w-5 text-white" />
           </div>
         </div>
-      </div> 
+      </div>
 
       {/* All Tools Section */}
-      <div className="bg-slate-700/10 p-4 rounded-xl">
+      <div className="p-4 rounded-xl">
         <h2 className="text-lg font-semibold text-slate-200 mb-3">All Tools</h2>
         <div className="flex flex-col gap-3">
           {tools.map(({ name, path }) => (
             <div
               key={path}
               onClick={() => navigate(path)}
-              className="cursor-pointer p-3 rounded-lg bg-slate-800/30 text-slate-100 font-medium hover:bg-slate-700"
+              className="cursor-pointer p-3 rounded-lg bg-slate-800/30 text-slate-100 font-medium hover:bg-slate-700 flex items-center justify-between"
             >
-              {name}
+              <span>{name}</span>
+              <ChevronRight className="w-5 h-5 text-slate-300" />
             </div>
           ))}
         </div>
       </div>
-
       {/* Recent Creations */}
-      
-      
+
+
 
     </div>
   );
