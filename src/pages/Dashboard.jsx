@@ -6,6 +6,7 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from "react-router-dom";
+import Community from './Community';
 
 axios.defaults.baseURL = import.meta.env.VITE_BASE_URL;
 
@@ -51,10 +52,10 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className=" min-h-[90vh] border-white/10 lg:min-h-[85vh] sm:mx-auto overflow-y-auto scrollbar-hide border p-4 rounded-xl">
+    <div className=" min-h-[60vh] border-white/10 lg:min-h-[85vh] sm:mx-auto overflow-y-auto scrollbar-hide border p-4 rounded-xl">
 
       {/* Card Section */}
-      <div className="flex gap-4 overflow-x-auto sm:flex-wrap scrollbar-hide justify-center">
+      {/* <div className="flex gap-4 overflow-x-auto sm:flex-wrap scrollbar-hide justify-center">
         {/* Total creation card */}
         {/* <div className="flex-shrink-0 flex justify-between items-center w-38 sm:w-55 lg:w-[48%] p-4 sm:p-6 rounded-xl border border-white/10 backdrop-blur-lg shadow-md bg-slate-800/30">
           <div className="text-slate-100">
@@ -67,7 +68,7 @@ const Dashboard = () => {
         </div> */}
 
         {/* Active plan card */}
-       <div className=" flex-shrink-0 flex justify-between items-center w-full lg:w-full p-4 sm:p-6 rounded-xl border border-white/10 backdrop-blur-lg shadow-md bg-slate-800/30">
+        <div className=" flex-shrink-0 flex justify-between items-center w-full lg:w-full p-4 sm:p-6 rounded-xl border border-white/10 backdrop-blur-lg shadow-md bg-slate-800/30">
 
           <div className="text-slate-100">
             <p className="text-sm opacity-80">Active Plan</p>
@@ -79,10 +80,11 @@ const Dashboard = () => {
             <Gem className="w-5 text-white" />
           </div>
         </div>
-      </div>
+      {/* </div> */} 
 
       {/* All Tools Section */}
-      <div className="p-4 rounded-xl">
+      {/* All Tools Section - Hidden on laptop and larger */}
+      {/* <div className="p-4 rounded-xl block lg:hidden">
         <h2 className="text-lg font-semibold text-slate-200 mb-3">All Tools</h2>
         <div className="flex flex-col gap-3">
           {tools.map(({ name, path }) => (
@@ -96,7 +98,12 @@ const Dashboard = () => {
             </div>
           ))}
         </div>
+      </div> */}
+      <div className='h-[70vh] sm:h-[63vh] mt-5'>
+        <Community/>
       </div>
+      
+
       {/* Recent Creations */}
 
 

@@ -26,7 +26,7 @@ const Layout = () => {
   return user ? (
     <div className="flex flex-col h-screen">
       {/* Navbar */}
-      <nav className="w-full px-6 py-3 bg-slate-950/10 backdrop-blur-lg flex items-center justify-between">
+      <nav className="w-full px-4 py-3 bg-slate-950/10 backdrop-blur-lg flex items-center justify-between">
         <div
           className="flex items-center gap-2 cursor-pointer"
           onClick={() => navigate('/')}
