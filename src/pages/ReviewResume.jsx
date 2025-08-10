@@ -45,7 +45,7 @@ const ReviewResume = () => {
   };
 
   return (
-    <div className="min-h-[90vh] lg:min-h-[85vh] w-full md:w-[85vw] lg:w-[82vw] sm:mx-auto overflow-x-hidden">
+    <div className="flex-1 overflow-y-auto bg-slate-950/10 p-4 scrollbar-hide">
       <div className="flex flex-col lg:flex-row gap-6">
 
         {/* Left Column */}

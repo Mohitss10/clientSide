@@ -20,27 +20,36 @@ const GenerateImages = () => {
 
   const { getToken } = useAuth();
 
-  const onSubmitHandler = async (e) => {
-    e.preventDefault();
-    try {
-      setLoading(true);
-      const prompt = `Generate an image in ${input} in the style ${selectedStyle}`;
-      const { data } = await axios.post(
-        '/api/ai/generate-image',
-        { prompt, publish },
-        { headers: { Authorization: `Bearer ${await getToken()}` } }
-      );
+const onSubmitHandler = async (e) => {
+  e.preventDefault();
 
-      if (data.success) {
-        setContent(data.content);
-      } else {
-        toast.error(data.message);
-      }
-    } catch (error) {
-      toast.error(error.message);
+  // Collapse left column immediately on submit (mobile/tablet only)
+if (typeof window !== 'undefined' && window.innerWidth < 1024) {
+  setShowLeftCol(false);
+}
+
+
+  try {
+    setLoading(true);
+    const prompt = `Generate an image in ${input} in the style ${selectedStyle}`;
+    const token = await getToken();
+    const { data } = await axios.post(
+      '/api/ai/generate-image',
+      { prompt, publish },
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
+
+    if (data.success) {
+      setContent(data.content);
+    } else {
+      toast.error(data.message);
     }
-    setLoading(false);
-  };
+  } catch (error) {
+    toast.error(error.message);
+  }
+  setLoading(false);
+};
+
 
   return (
     <div className="min-h-[90vh] lg:min-h-[85vh] w-full max-w-full overflow-x-hidden sm:mx-auto">
@@ -62,7 +71,7 @@ const GenerateImages = () => {
             <svg
               onClick={() => setShowLeftCol(!showLeftCol)}
               xmlns="http://www.w3.org/2000/svg"
-              className={`w-6 h-6 text-white cursor-pointer transition-transform duration-300 lg:hidden ${showLeftCol ? 'rotate-180' : ''}`}
+              className={`w-4 h-4 text-white cursor-pointer transition-transform duration-300 lg:hidden ${showLeftCol ? 'rotate-180' : ''}`}
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -126,7 +135,7 @@ const GenerateImages = () => {
         </form>
 
         {/* Right Column */}
-        <div className="flex-1 w-full max-w-full p-5 rounded-2xl flex flex-col bg-slate-700/10 backdrop-blur-sm border border-white/10 min-h-96">
+        <div className="flex-1 gap-4 w-full max-w-full p-5 rounded-2xl flex flex-col bg-slate-700/10 backdrop-blur-sm border border-white/10">
           <div className="flex items-center gap-3">
             <Image className="w-5 h-5 text-[#00AD25]" />
             <h1 className="text-xl font-semibold text-white">Generated Image</h1>
@@ -196,15 +205,19 @@ const GenerateImages = () => {
         </div>
 
       </div>
-      <div className="mt-12 p-6 bg-slate-700/10 border border-white/10 rounded-xl text-white">
+      <div className="mt-12 p-6 bg-slate-700/10 border border-white/10 rounded-xl text-white hidden sm:block">
         <h2 className="text-lg font-bold mb-3">Generate Stunning Images with AI</h2>
         <p className="text-sm text-white/80 mb-2">
           Create high-quality, unique images instantly using our AI image generator — perfect for art, design projects, social media, and marketing.
         </p>
-
+        <p className="text-sm text-white/80 mb-2">
+          Simply enter your prompt or idea, and our system will bring it to life with vivid detail, creative compositions, and realistic textures.
+        </p>
+        <p className="text-sm text-white/80">
+          Whether you need concept art, product visuals, or just want to explore your creativity, our AI tool delivers stunning results in seconds.
+        </p>
       </div>
     </div>
-
   );
 }
 

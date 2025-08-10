@@ -80,33 +80,22 @@ const Dashboard = () => {
             <Gem className="w-5 text-white" />
           </div>
         </div>
-      {/* </div> */} 
+      
+<div className="h-[43vh] sm:h-[63vh] mt-5 scrollable-container overflow-y-auto">
+  <Community />
+</div>
 
-      {/* All Tools Section */}
-      {/* All Tools Section - Hidden on laptop and larger */}
-      {/* <div className="p-4 rounded-xl block lg:hidden">
-        <h2 className="text-lg font-semibold text-slate-200 mb-3">All Tools</h2>
-        <div className="flex flex-col gap-3">
-          {tools.map(({ name, path }) => (
-            <div
-              key={path}
-              onClick={() => navigate(path)}
-              className="cursor-pointer p-3 rounded-lg bg-slate-800/30 text-slate-100 font-medium hover:bg-slate-700 flex items-center justify-between"
-            >
-              <span>{name}</span>
-              <ChevronRight className="w-5 h-5 text-slate-300" />
-            </div>
-          ))}
-        </div>
-      </div> */}
-      <div className='h-[43vh] sm:h-[63vh] mt-5'>
-        <Community/>
-      </div>
       
 
       {/* Mobile Only */}
 <motion.button
-  className="mt-6 px-6 py-3 rounded-xl w-full  text-slate-300 bg-slate-800/30 font-medium shadow-lg hover:shadow-xl transition sm:hidden"
+  onClick={() => {
+    const container = document.querySelector('.scrollable-container');
+    if (container) {
+      container.scrollBy({ top: window.innerHeight * 0.5, behavior: 'smooth' });
+    }
+  }}
+  className="mt-6 px-6 py-3 rounded-xl w-full text-slate-300 bg-slate-800/30 font-medium shadow-lg hover:shadow-xl transition sm:hidden flex flex-col items-center"
   animate={{
     y: [0, -8, 0, 8, 0],
   }}
@@ -117,22 +106,10 @@ const Dashboard = () => {
   }}
 >
   Scroll to view more
+  <ChevronDown className="h-6 w-6 text-shadow-white" />
 </motion.button>
 
-{/* Laptop & Above */}
-{/* <motion.button
-  className="mt-6 px-6 py-3 rounded-xl w-full bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 text-white font-medium shadow-lg hover:shadow-xl transition hidden lg:block"
-  animate={{
-    y: [0, -8, 0, 8, 0],
-  }}
-  transition={{
-    duration: 2,
-    repeat: Infinity,
-    ease: "easeInOut",
-  }}
->
-  Scroll to view more
-</motion.button> */}
+
 
 
 

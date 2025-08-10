@@ -21,39 +21,41 @@ const WriteArticle = () => {
   const [showConfig, setShowConfig] = useState(true); // start open
   const { getToken } = useAuth();
 
-  const onSubmitHandler = async (e) => {
-    e.preventDefault();
-    try {
-      setLoading(true);
-      const prompt = `Write an article about ${input} in ${selectedLength.text}`;
-      const token = await getToken();
-      const { data } = await axios.post(
-        '/api/ai/generate-article',
-        { prompt, length: selectedLength.length },
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
+const onSubmitHandler = async (e) => {
+  e.preventDefault();
 
-      if (data.success) {
-        setContent(data.content);
-        if (window.innerWidth < 1024) {
-          // Collapse on mobile/tablet after generation
-          setShowConfig(false);
-        }
-      } else {
-        toast.error(data.message);
+  try {
+    setLoading(true);
+    const prompt = `Write an article about ${input} in ${selectedLength.text}`;
+    const token = await getToken();
+    const { data } = await axios.post(
+      '/api/ai/generate-article',
+      { prompt, length: selectedLength.length },
+      {
+        headers: { Authorization: `Bearer ${token}` },
       }
-    } catch (error) {
-      toast.error(error.message);
+    );
+
+    if (data.success) {
+      setContent(data.content);
+
+      // Collapse config only on mobile/tablet after success
+      if (typeof window !== 'undefined' && window.innerWidth < 1024) {
+        setShowConfig(false);
+      }
+    } else {
+      toast.error(data.message);
     }
-    setLoading(false);
-  };
+  } catch (error) {
+    toast.error(error.message);
+  }
+  setLoading(false);
+};
+
 
   return (
-<div className="min-h-[90vh] lg:min-h-[85vh] sm:mx-auto overflow-y-auto scrollbar-hide">
+    <div className="min-h-[90vh] lg:min-h-[85vh] sm:mx-auto overflow-y-auto scrollbar-hide">
       <div className="flex flex-col lg:flex-row gap-6">
-        
         {/* LEFT COLUMN */}
         <form
           onSubmit={onSubmitHandler}
@@ -70,8 +72,10 @@ const WriteArticle = () => {
               <Sparkles className="w-6 text-[#4A7AFF]" />
               <h1 className="text-xl text-white font-semibold">Article Configuration</h1>
             </div>
-            <div className="lg:hidden transition-transform duration-300"
-                 style={{ transform: `rotate(${showConfig ? 180 : 0}deg)` }}>
+            <div
+              className="lg:hidden transition-transform duration-300"
+              style={{ transform: `rotate(${showConfig ? 180 : 0}deg)` }}
+            >
               <ChevronDown className="w-5 h-5 text-white" />
             </div>
           </div>
@@ -126,7 +130,7 @@ const WriteArticle = () => {
         </form>
 
         {/* RIGHT COLUMN */}
-        <div className="flex-1 w-full max-w-full p-5 rounded-2xl flex flex-col bg-slate-700/10 backdrop-blur-sm border border-white/10 min-h-96 max-h-[600px]">
+        <div className="flex-1 gap-4 w-full max-w-full p-5 rounded-2xl flex flex-col bg-slate-700/10 backdrop-blur-sm border border-white/10">
           <div className="flex items-center gap-3">
             <Edit className="w-5 h-5 text-[#4A7AFF]" />
             <h1 className="text-xl text-white font-semibold">Generated article</h1>
@@ -148,18 +152,18 @@ const WriteArticle = () => {
           )}
         </div>
       </div>
-      <div className="mt-12 p-6 bg-slate-700/10 border border-white/10 rounded-xl text-white">
-      <h2 className="text-lg font-bold mb-3">Write High-Quality Articles with AI</h2>
-      <p className="text-sm text-white/80 mb-2">
-        Our AI article writer helps you create engaging, well-structured, and SEO-friendly content in just minutes — perfect for blogs, websites, and social media.
-      </p>
-      <p className="text-sm text-white/80 mb-2">
-        Simply enter your topic or keywords, and our system will generate a complete article with relevant headings, clear formatting, and a natural flow.
-      </p>
-      <p className="text-sm text-white/80">
-        Save time, boost productivity, and focus on your ideas while AI handles the heavy lifting of writing.
-      </p>
-    </div>
+      <div className="mt-12 p-6 bg-slate-700/10 border border-white/10 rounded-xl text-white hidden sm:block">
+        <h2 className="text-lg font-bold mb-3">Write High-Quality Articles with AI</h2>
+        <p className="text-sm text-white/80 mb-2">
+          Our AI article writer helps you create engaging, well-structured, and SEO-friendly content in just minutes — perfect for blogs, websites, and social media.
+        </p>
+        <p className="text-sm text-white/80 mb-2">
+          Simply enter your topic or keywords, and our system will generate a complete article with relevant headings, clear formatting, and a natural flow.
+        </p>
+        <p className="text-sm text-white/80">
+          Save time, boost productivity, and focus on your ideas while AI handles the heavy lifting of writing.
+        </p>
+      </div>
     </div>
   );
 };

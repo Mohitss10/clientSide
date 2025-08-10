@@ -20,31 +20,35 @@ const BlogTitles = () => {
 
   const { getToken } = useAuth();
 
-  const onSubmitHandler = async (e) => {
-    e.preventDefault();
-    try {
-      setLoading(true);
-      const prompt = `Generate a blog title for the keyword ${input} in the category ${selectedCategories}`;
-      const { data } = await axios.post(
-        '/api/ai/generate-blog-title',
-        { prompt },
-        { headers: { Authorization: `Bearer ${await getToken()}` } }
-      );
 
-      if (data.success) {
-        setContent(data.content);
-        // collapse left column on mobile/tablet after generation
-        if (typeof window !== 'undefined' && window.innerWidth < 1024) {
-          setShowLeftCol(false);
-        }
-      } else {
-        toast.error(data.message || 'Failed to generate');
+
+const onSubmitHandler = async (e) => {
+  e.preventDefault();
+
+  try {
+    setLoading(true);
+    const prompt = `Generate a blog title for the keyword ${input} in the category ${selectedCategories}`;
+    const token = await getToken();
+    const { data } = await axios.post(
+      '/api/ai/generate-blog-title',
+      { prompt },
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
+
+    if (data.success) {
+      setContent(data.content);
+      if (typeof window !== 'undefined' && window.innerWidth < 1024) {
+        setShowLeftCol(false);
       }
-    } catch (error) {
-      toast.error(error?.message || 'Something went wrong!');
+    } else {
+      toast.error(data.message || 'Failed to generate');
     }
-    setLoading(false);
-  };
+  } catch (error) {
+    toast.error(error?.message || 'Something went wrong!');
+  }
+  setLoading(false);
+};
+
 
   return (
     <div className="min-h-[90vh] lg:min-h-[85vh] sm:mx-auto overflow-y-auto scrollbar-hide">
@@ -136,7 +140,7 @@ const BlogTitles = () => {
         </div>
 
         {/* Right Column */}
-        <div className="flex-1 w-full max-w-full p-5 rounded-2xl flex flex-col bg-slate-700/10 backdrop-blur-sm border border-white/10 min-h-96">
+        <div className="flex-1 gap-4 w-full max-w-full p-5 rounded-2xl flex flex-col bg-slate-700/10 backdrop-blur-sm border border-white/10">
           <div className="flex items-center gap-3">
             <Hash className="w-5 h-5 text-[#8E37EB]" />
             <h1 className="text-xl font-semibold text-white">Generated Titles</h1>
@@ -158,18 +162,19 @@ const BlogTitles = () => {
           )}
         </div>
       </div>
-      <div className="mt-12 p-6 bg-slate-700/10 border border-white/10 rounded-xl text-white">
-      <h2 className="text-lg font-bold mb-3">Generate Catchy Blog Titles Instantly</h2>
-      <p className="text-sm text-white/80 mb-2">
-        Struggling to come up with engaging blog titles? Our AI-powered tool creates attention-grabbing, SEO-friendly titles in seconds.
-      </p>
-      <p className="text-sm text-white/80 mb-2">
-        Simply enter your topic or keywords, and our system will suggest multiple title ideas to help your content stand out.
-      </p>
-      <p className="text-sm text-white/80">
-        Perfect for bloggers, marketers, and content creators looking to boost clicks and attract readers effortlessly.
-      </p>
-    </div>
+
+      <div className="mt-12 p-6 bg-slate-700/10 border border-white/10 rounded-xl text-white hidden sm:block">
+        <h2 className="text-lg font-bold mb-3">Generate Catchy Blog Titles Instantly</h2>
+        <p className="text-sm text-white/80 mb-2">
+          Struggling to come up with engaging blog titles? Our AI-powered tool creates attention-grabbing, SEO-friendly titles in seconds.
+        </p>
+        <p className="text-sm text-white/80 mb-2">
+          Simply enter your topic or keywords, and our system will suggest multiple title ideas to help your content stand out.
+        </p>
+        <p className="text-sm text-white/80">
+          Perfect for bloggers, marketers, and content creators looking to boost clicks and attract readers effortlessly.
+        </p>
+      </div>
     </div>
   );
 };

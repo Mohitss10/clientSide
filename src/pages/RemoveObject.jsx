@@ -51,26 +51,28 @@ const RemoveObject = () => {
   };
 
   return (
-    <div className="min-h-[90vh] lg:min-h-[85vh] w-full md:w-[85vw] lg:w-[82vw] sm:mx-auto">
+    <div className="flex-1 overflow-y-auto bg-slate-950/10 p-4 scrollbar-hide">
       <div className="flex flex-col lg:flex-row gap-6">
 
         {/* Left Column */}
         <div
-          className={`flex-1 flex flex-col w-full max-w-full bg-slate-700/10 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden transition-all duration-500 ${
-            showLeftCol ? 'max-h-[1000px] p-5 opacity-100' : 'max-h-16 p-5 opacity-90'
-          }`}
+          className={`flex-1 flex flex-col w-full max-w-full bg-slate-700/10 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden transition-all duration-500 ${showLeftCol ? 'max-h-[1000px] p-5 opacity-100' : 'max-h-16 p-5 opacity-90'
+            }`}
         >
           <div className="flex items-center justify-between cursor-pointer" onClick={() => setShowLeftCol(!showLeftCol)}>
             <div className="flex items-center gap-3">
               <Sparkles className="w-6 text-[#ff4aea]" />
               <h1 className="text-xl font-semibold text-white">Object Removal</h1>
             </div>
-            {showLeftCol ? (
-              <ChevronUp className="w-5 h-5 text-white" />
-            ) : (
-              <ChevronDown className="w-5 h-5 text-white" />
-            )}
+            <div className="lg:hidden">
+              {showLeftCol ? (
+                <ChevronUp className="w-5 h-5 text-white" />
+              ) : (
+                <ChevronDown className="w-5 h-5 text-white" />
+              )}
+            </div>
           </div>
+
 
           {showLeftCol && (
             <form onSubmit={onSubmitHandler} className="flex flex-col">
@@ -109,7 +111,7 @@ const RemoveObject = () => {
         </div>
 
         {/* Right Column */}
-        <div className="flex-1 w-full max-w-full p-5 rounded-2xl flex flex-col bg-slate-700/10 backdrop-blur-sm border border-white/10">
+        <div className="flex-1 gap-4 w-full max-w-full p-5 rounded-2xl flex flex-col bg-slate-700/10 backdrop-blur-sm border border-white/10">
           <div className="flex items-center gap-3">
             <Scissors className="w-5 h-5 text-[#ff4aea]" />
             <h1 className="text-xl font-semibold text-white">Processed Image</h1>
@@ -171,7 +173,7 @@ const RemoveObject = () => {
                       console.error("Download error:", err);
                     }
                   }}
-                className="bg-slate-700/10 border border-white/20 text-white px-4 py-2 rounded-lg text-sm text-center w-fit backdrop-blur-sm"
+                  className="bg-slate-700/10 border border-white/20 text-white px-4 py-2 rounded-lg text-sm text-center w-fit backdrop-blur-sm"
                 >
                   Download Image
                 </button>
@@ -181,17 +183,17 @@ const RemoveObject = () => {
         </div>
       </div>
       <div className="mt-12 p-6 bg-slate-700/10 border border-white/10 rounded-xl text-white">
-      <h2 className="text-lg font-bold mb-3">Remove Objects from Images Effortlessly</h2>
-      <p className="text-sm text-white/80 mb-2">
-        Our AI-powered object remover lets you erase unwanted objects from your photos quickly and seamlessly, without leaving any traces.
-      </p>
-      <p className="text-sm text-white/80 mb-2">
-        Simply upload your image, highlight the object you want to remove, and our system will intelligently blend the surrounding background for a natural look.
-      </p>
-      <p className="text-sm text-white/80">
-        Perfect for fixing product shots, travel photos, or personal images — no advanced editing skills required.
-      </p>
-    </div>
+        <h2 className="text-lg font-bold mb-3">Remove Objects from Images Effortlessly</h2>
+        <p className="text-sm text-white/80 mb-2">
+          Our AI-powered object remover lets you erase unwanted objects from your photos quickly and seamlessly, without leaving any traces.
+        </p>
+        <p className="text-sm text-white/80 mb-2">
+          Simply upload your image, highlight the object you want to remove, and our system will intelligently blend the surrounding background for a natural look.
+        </p>
+        <p className="text-sm text-white/80">
+          Perfect for fixing product shots, travel photos, or personal images — no advanced editing skills required.
+        </p>
+      </div>
     </div>
 
   );

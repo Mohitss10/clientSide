@@ -14,26 +14,33 @@ const RemoveBackground = () => {
 
   const { getToken } = useAuth();
 
-  const onSubmitHandler = async (e) => {
-    e.preventDefault();
-    if (!file) return toast.error('Please upload an image');
+const onSubmitHandler = async (e) => {
+  e.preventDefault();
+  if (!file) return toast.error('Please upload an image');
 
-    try {
-      setLoading(true);
+  // Collapse left column immediately on submit (mobile/tablet only)
+  if (typeof window !== 'undefined' && window.innerWidth < 1024) {
+    setShowLeftCol(false);
+  }
 
-      const formData = new FormData();
-      formData.append('image', file);
+  try {
+    setLoading(true);
 
-      const { data } = await axios.post(
-        '/api/ai/remove-image-background',
-        formData,
-        {
-          headers: {
-            Authorization: `Bearer ${await getToken()}`,
-            'Content-Type': 'multipart/form-data',
-          },
-        }
-      );
+    const formData = new FormData();
+    formData.append('image', file);
+
+    const { data } = await axios.post(
+      '/api/ai/remove-image-background',
+      formData,
+      {
+        headers: {
+          Authorization: `Bearer ${await getToken()}`,
+          'Content-Type': 'multipart/form-data',
+        },
+      }
+    );
+
+    // rest of your code ...
 
       if (data.success) {
         setProcessedImage(data.content);
@@ -52,7 +59,7 @@ const RemoveBackground = () => {
   };
 
   return (
-    <div className="min-h-[90vh] lg:min-h-[85vh] w-full md:w-[85vw] lg:w-[82vw] sm:mx-auto">
+    <div className="flex-1 overflow-y-auto bg-slate-950/10 p-4 scrollbar-hide">
       <div className="flex flex-col lg:flex-row gap-6">
 
         {/* Left Column container */}
@@ -130,7 +137,7 @@ const RemoveBackground = () => {
         </div>
 
         {/* Right Column */}
-        <div className="flex-1 w-full max-w-full p-5 rounded-2xl flex flex-col bg-slate-700/10 backdrop-blur-sm border border-white/10">
+        <div className="flex-1 gap-4 w-full max-w-full p-5 rounded-2xl flex flex-col bg-slate-700/10 backdrop-blur-sm border border-white/10">
           <div className="flex items-center gap-3">
             <Eraser className="w-5 h-5 text-[#FF4938]" />
             <h1 className="text-xl font-semibold text-white">Processed Image</h1>
@@ -195,7 +202,7 @@ const RemoveBackground = () => {
       </div>
 
       {/* Optional SEO Article Section (kept unchanged) */}
-      <div className="mt-12 p-6 bg-slate-700/10 border border-white/10 rounded-xl text-white">
+      <div className="mt-12 p-6 bg-slate-700/10 border border-white/10 rounded-xl hidden sm:block text-white">
         <h2 className="text-lg font-bold mb-3">Remove Background from Images Instantly</h2>
         <p className="text-sm text-white/80 mb-2">
           Removing backgrounds from images has never been easier. With our AI-powered background remover, you can upload any image and get a clean, transparent background in seconds — perfect for product photos, profile pictures, or creative projects.
