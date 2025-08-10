@@ -163,7 +163,7 @@ const onSubmitHandler = async (e) => {
         </div>
       </div>
 
-      <div className="mt-12 p-6 bg-slate-700/10 border border-white/10 rounded-xl text-white hidden sm:block">
+      <div className="mt-6 p-6 bg-slate-700/10 border border-white/10 rounded-xl text-white hidden sm:block">
         <h2 className="text-lg font-bold mb-3">Generate Catchy Blog Titles Instantly</h2>
         <p className="text-sm text-white/80 mb-2">
           Struggling to come up with engaging blog titles? Our AI-powered tool creates attention-grabbing, SEO-friendly titles in seconds.

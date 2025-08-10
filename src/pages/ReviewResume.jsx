@@ -125,7 +125,7 @@ const ReviewResume = () => {
         </div>
 
       </div>
-      <div className="mt-12 p-6 bg-slate-700/10 border border-white/10 rounded-xl text-white">
+      <div className="mt-6 p-6 bg-slate-700/10 border border-white/10 rounded-xl text-white">
       <h2 className="text-lg font-bold mb-3">Get Your Resume Reviewed by AI</h2>
       <p className="text-sm text-white/80 mb-2">
         Our AI-powered resume reviewer analyzes your resume for structure, formatting, keywords, and impact — helping you stand out in competitive job markets.

@@ -202,7 +202,7 @@ const onSubmitHandler = async (e) => {
       </div>
 
       {/* Optional SEO Article Section (kept unchanged) */}
-      <div className="mt-12 p-6 bg-slate-700/10 border border-white/10 rounded-xl hidden sm:block text-white">
+      <div className="mt-6 p-6 bg-slate-700/10 border border-white/10 rounded-xl hidden sm:block text-white">
         <h2 className="text-lg font-bold mb-3">Remove Background from Images Instantly</h2>
         <p className="text-sm text-white/80 mb-2">
           Removing backgrounds from images has never been easier. With our AI-powered background remover, you can upload any image and get a clean, transparent background in seconds — perfect for product photos, profile pictures, or creative projects.

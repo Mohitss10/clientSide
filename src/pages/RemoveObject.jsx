@@ -182,7 +182,7 @@ const RemoveObject = () => {
           )}
         </div>
       </div>
-      <div className="mt-12 p-6 bg-slate-700/10 border border-white/10 rounded-xl text-white">
+      <div className="mt-6 p-6 bg-slate-700/10 border border-white/10 rounded-xl text-white">
         <h2 className="text-lg font-bold mb-3">Remove Objects from Images Effortlessly</h2>
         <p className="text-sm text-white/80 mb-2">
           Our AI-powered object remover lets you erase unwanted objects from your photos quickly and seamlessly, without leaving any traces.
