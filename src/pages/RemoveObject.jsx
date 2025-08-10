@@ -56,7 +56,7 @@ const RemoveObject = () => {
 
         {/* Left Column */}
         <div
-          className={`flex-1 flex flex-col w-full max-w-full bg-black/40 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden transition-all duration-500 ${
+          className={`flex-1 flex flex-col w-full max-w-full bg-slate-700/10 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden transition-all duration-500 ${
             showLeftCol ? 'max-h-[1000px] p-5 opacity-100' : 'max-h-16 p-5 opacity-90'
           }`}
         >
@@ -109,7 +109,7 @@ const RemoveObject = () => {
         </div>
 
         {/* Right Column */}
-        <div className="flex-1 w-full max-w-full p-5 rounded-2xl flex flex-col bg-black/40 backdrop-blur-sm border border-white/10">
+        <div className="flex-1 w-full max-w-full p-5 rounded-2xl flex flex-col bg-slate-700/10 backdrop-blur-sm border border-white/10">
           <div className="flex items-center gap-3">
             <Scissors className="w-5 h-5 text-[#ff4aea]" />
             <h1 className="text-xl font-semibold text-white">Processed Image</h1>
@@ -171,7 +171,7 @@ const RemoveObject = () => {
                       console.error("Download error:", err);
                     }
                   }}
-                className="bg-black/40 border border-white/20 text-white px-4 py-2 rounded-lg text-sm text-center w-fit backdrop-blur-sm"
+                className="bg-slate-700/10 border border-white/20 text-white px-4 py-2 rounded-lg text-sm text-center w-fit backdrop-blur-sm"
                 >
                   Download Image
                 </button>
@@ -180,7 +180,7 @@ const RemoveObject = () => {
           )}
         </div>
       </div>
-      <div className="mt-12 p-6 bg-black/30 border border-white/10 rounded-xl text-white">
+      <div className="mt-12 p-6 bg-slate-700/10 border border-white/10 rounded-xl text-white">
       <h2 className="text-lg font-bold mb-3">Remove Objects from Images Effortlessly</h2>
       <p className="text-sm text-white/80 mb-2">
         Our AI-powered object remover lets you erase unwanted objects from your photos quickly and seamlessly, without leaving any traces.

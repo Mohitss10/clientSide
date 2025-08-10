@@ -8,7 +8,7 @@ const CreationItem = ({ item }) => {
     <div
       onClick={() => setExpanded(!expanded)}
       className="p-4 max-w-5xl text-sm 
-                 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] 
+                 bg-slate-900/10
                  border border-gray-700 
                  rounded-lg cursor-pointer 
                  shadow-lg shadow-black/30 

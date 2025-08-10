@@ -57,7 +57,7 @@ const WriteArticle = () => {
         {/* LEFT COLUMN */}
         <form
           onSubmit={onSubmitHandler}
-          className="flex-1 w-full max-w-full p-5 bg-black/40 backdrop-blur-sm rounded-2xl border border-white/10"
+          className="flex-1 w-full max-w-full p-5 bg-slate-700/10 backdrop-blur-sm rounded-2xl border border-white/10"
         >
           {/* Heading */}
           <div
@@ -126,7 +126,7 @@ const WriteArticle = () => {
         </form>
 
         {/* RIGHT COLUMN */}
-        <div className="flex-1 w-full max-w-full p-5 rounded-2xl flex flex-col bg-black/40 backdrop-blur-sm border border-white/10 min-h-96 max-h-[600px]">
+        <div className="flex-1 w-full max-w-full p-5 rounded-2xl flex flex-col bg-slate-700/10 backdrop-blur-sm border border-white/10 min-h-96 max-h-[600px]">
           <div className="flex items-center gap-3">
             <Edit className="w-5 h-5 text-[#4A7AFF]" />
             <h1 className="text-xl text-white font-semibold">Generated article</h1>
@@ -148,7 +148,7 @@ const WriteArticle = () => {
           )}
         </div>
       </div>
-      <div className="mt-12 p-6 bg-black/30 border border-white/10 rounded-xl text-white">
+      <div className="mt-12 p-6 bg-slate-700/10 border border-white/10 rounded-xl text-white">
       <h2 className="text-lg font-bold mb-3">Write High-Quality Articles with AI</h2>
       <p className="text-sm text-white/80 mb-2">
         Our AI article writer helps you create engaging, well-structured, and SEO-friendly content in just minutes — perfect for blogs, websites, and social media.

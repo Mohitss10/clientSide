@@ -49,7 +49,7 @@ const GenerateImages = () => {
         {/* Left Column */}
         <form
           onSubmit={onSubmitHandler}
-          className={`flex-1 w-full max-w-full p-5 bg-black/40 backdrop-blur-sm rounded-2xl border border-white/10 
+          className={`flex-1 w-full max-w-full p-5 bg-slate-700/10 backdrop-blur-sm rounded-2xl border border-white/10 
             transition-all duration-500 ease-in-out
             ${showLeftCol ? 'max-h-[2000px] opacity-100' : 'max-h-16 overflow-hidden opacity-80 lg:max-h-full lg:opacity-100'}`}
         >
@@ -106,7 +106,7 @@ const GenerateImages = () => {
                 checked={publish}
                 className="sr-only peer"
               />
-              <div className="w-9 h-5 bg-white/20 rounded-full peer-checked:bg-green-500 transition"></div>
+              <div className="w-9 h-5 bg-slate-700/10 rounded-full peer-checked:bg-green-500 transition"></div>
               <span className="absolute left-1 top-1 w-3 h-3 bg-white rounded-full transition peer-checked:translate-x-4"></span>
             </label>
             <p className="text-sm text-white/90">Make this image Public</p>
@@ -126,7 +126,7 @@ const GenerateImages = () => {
         </form>
 
         {/* Right Column */}
-        <div className="flex-1 w-full max-w-full p-5 rounded-2xl flex flex-col bg-black/40 backdrop-blur-sm border border-white/10 min-h-96">
+        <div className="flex-1 w-full max-w-full p-5 rounded-2xl flex flex-col bg-slate-700/10 backdrop-blur-sm border border-white/10 min-h-96">
           <div className="flex items-center gap-3">
             <Image className="w-5 h-5 text-[#00AD25]" />
             <h1 className="text-xl font-semibold text-white">Generated Image</h1>
@@ -187,7 +187,7 @@ const GenerateImages = () => {
                     console.error("Download error:", err);
                   }
                 }}
-                className="bg-black/40 border border-white/20 text-white px-4 py-2 rounded-lg text-sm text-center w-fit backdrop-blur-sm"
+                className="bg-slate-700/10 border border-white/20 text-white px-4 py-2 rounded-lg text-sm text-center w-fit backdrop-blur-sm"
               >
                 Download Image
               </button>
@@ -196,7 +196,7 @@ const GenerateImages = () => {
         </div>
 
       </div>
-      <div className="mt-12 p-6 bg-black/30 border border-white/10 rounded-xl text-white">
+      <div className="mt-12 p-6 bg-slate-700/10 border border-white/10 rounded-xl text-white">
         <h2 className="text-lg font-bold mb-3">Generate Stunning Images with AI</h2>
         <p className="text-sm text-white/80 mb-2">
           Create high-quality, unique images instantly using our AI image generator — perfect for art, design projects, social media, and marketing.

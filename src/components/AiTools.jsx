@@ -66,11 +66,11 @@ const AiTools = () => {
   const { user } = useUser();
 
   return (
-    <div className="py-10 sm:py-16 px-4 sm:px-10 xl:px-20">
-      <div className="">
+    <section className="py-10 sm:py-16 px-4 sm:px-10 xl:px-20">
+      <div className="max-w-screen-2xl mx-auto">
         {/* Header */}
         <header className="text-center">
-          <h2 className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">
+          <h2 className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-slate-400">
             Our AI Tools
           </h2>
           <p className="text-gray-300 mt-4 text-base sm:text-lg max-w-2xl mx-auto">
@@ -93,9 +93,12 @@ const AiTools = () => {
               }}
             >
               {/* Overlay */}
-              <div className="absolute inset-0 bg-black/30 backdrop-blur-sm rounded-2xl" />
+              <div className="absolute inset-0 bg-slate-700/30 backdrop-blur-sm rounded-2xl" />
 
               {/* Content */}
+              <div>
+                
+              </div>
               <div className="relative z-10 flex flex-col justify-between h-full">
                 {/* Icon */}
                 {tool.title !== "AIMatrix" && (
@@ -103,7 +106,8 @@ const AiTools = () => {
                 )}
 
                 {/* Title */}
-                <h3
+                <div>
+                   <h3
                   className={`font-bold text-white ${
                     tool.title === "AIMatrix" ? "text-4xl sm:text-5xl" : "text-lg"
                   }`}
@@ -119,12 +123,14 @@ const AiTools = () => {
                 >
                   {tool.description}
                 </p>
+                </div>
+               
               </div>
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

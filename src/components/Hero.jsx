@@ -3,7 +3,6 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { assets } from '../assets/assets';
-
 // Reusable fadeIn variant (unchanged)
 const fadeIn = (direction = 'up', delay = 0) => {
   const from = {
@@ -51,7 +50,7 @@ const Hero = () => {
 
   return (
     <section className="relative text-white min-h-screen flex flex-col justify-center items-center overflow-hidden px-4 sm:px-20 xl:px-32">
-
+       
       {/* 💫 Animated glow background */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-1/2 left-1/2 w-[800px] h-[800px]  " />
@@ -152,7 +151,7 @@ const Hero = () => {
                   alt=""
                 />
               </div>
-              <div>Join 5,000+ other members</div>
+              <div>Join 100+ other members</div>
             </div>
           </div>
         </div>

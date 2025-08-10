@@ -51,7 +51,7 @@ const ReviewResume = () => {
         {/* Left Column */}
         <form
           onSubmit={onSubmitHandler}
-          className="flex-1 flex flex-col w-full max-w-full p-5 bg-black/40 backdrop-blur-sm rounded-2xl border border-white/10"
+          className="flex-1 flex flex-col w-full max-w-full p-5 bg-slate-700/10 backdrop-blur-sm rounded-2xl border border-white/10"
         >
           {/* Heading + Toggle */}
           <div
@@ -104,7 +104,7 @@ const ReviewResume = () => {
         </form>
 
         {/* Right Column */}
-        <div className="flex-1 w-full max-w-full p-5 rounded-2xl flex flex-col bg-black/40 backdrop-blur-sm border border-white/10">
+        <div className="flex-1 w-full max-w-full p-5 rounded-2xl flex flex-col bg-slate-700/10 backdrop-blur-sm border border-white/10">
           <div className="flex items-center gap-3 mb-3">
             <FileText className="w-5 h-5 text-[#00DA83]" />
             <h1 className="text-xl text-white font-semibold">Analysis Result</h1>
@@ -125,7 +125,7 @@ const ReviewResume = () => {
         </div>
 
       </div>
-      <div className="mt-12 p-6 bg-black/30 border border-white/10 rounded-xl text-white">
+      <div className="mt-12 p-6 bg-slate-700/10 border border-white/10 rounded-xl text-white">
       <h2 className="text-lg font-bold mb-3">Get Your Resume Reviewed by AI</h2>
       <p className="text-sm text-white/80 mb-2">
         Our AI-powered resume reviewer analyzes your resume for structure, formatting, keywords, and impact — helping you stand out in competitive job markets.

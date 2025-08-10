@@ -51,7 +51,7 @@ const BlogTitles = () => {
       <div className="flex flex-col lg:flex-row gap-6">
         {/* Left Column container */}
         <div
-          className={`flex-1 flex flex-col w-full max-w-full bg-black/40 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden transition-all duration-500 ease-in-out`}
+          className={`flex-1 flex flex-col w-full max-w-full bg-slate-700/10 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden transition-all duration-500 ease-in-out`}
         >
           {/* Heading Row */}
           <div
@@ -136,7 +136,7 @@ const BlogTitles = () => {
         </div>
 
         {/* Right Column */}
-        <div className="flex-1 w-full max-w-full p-5 rounded-2xl flex flex-col bg-black/40 backdrop-blur-sm border border-white/10 min-h-96">
+        <div className="flex-1 w-full max-w-full p-5 rounded-2xl flex flex-col bg-slate-700/10 backdrop-blur-sm border border-white/10 min-h-96">
           <div className="flex items-center gap-3">
             <Hash className="w-5 h-5 text-[#8E37EB]" />
             <h1 className="text-xl font-semibold text-white">Generated Titles</h1>
@@ -158,7 +158,7 @@ const BlogTitles = () => {
           )}
         </div>
       </div>
-      <div className="mt-12 p-6 bg-black/30 border border-white/10 rounded-xl text-white">
+      <div className="mt-12 p-6 bg-slate-700/10 border border-white/10 rounded-xl text-white">
       <h2 className="text-lg font-bold mb-3">Generate Catchy Blog Titles Instantly</h2>
       <p className="text-sm text-white/80 mb-2">
         Struggling to come up with engaging blog titles? Our AI-powered tool creates attention-grabbing, SEO-friendly titles in seconds.
