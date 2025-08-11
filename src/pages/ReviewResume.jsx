@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react'; // ✅ Added useEffect
 import { FileText, Sparkles, ChevronDown, ChevronUp } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { useAuth } from '@clerk/clerk-react';
@@ -11,7 +11,7 @@ const ReviewResume = () => {
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
   const [analysis, setAnalysis] = useState('');
-  const [showConfig, setShowConfig] = useState(false); // Mobile toggle
+  const [showConfig, setShowConfig] = useState(true); // ✅ open by default
 
   const { getToken } = useAuth();
 
@@ -44,8 +44,15 @@ const ReviewResume = () => {
     setLoading(false);
   };
 
+  // ✅ Auto close left column when analysis is available
+  useEffect(() => {
+    if (analysis) {
+      setShowConfig(false);
+    }
+  }, [analysis]);
+
   return (
-    <div className="flex-1  overflow-y-hidden bg-slate-950/10 scrollbar-hide">
+    <div className="flex-1 overflow-y-hidden bg-slate-950/10 scrollbar-hide">
       <div className="flex flex-col lg:flex-row gap-6">
 
         {/* Left Column */}
@@ -73,9 +80,8 @@ const ReviewResume = () => {
 
           {/* Form Content with smooth toggle */}
           <div
-            className={`overflow-hidden transition-all duration-500 ease-in-out lg:max-h-none ${
-              showConfig ? 'max-h-[500px] opacity-100 mt-6' : 'max-h-0 opacity-0 lg:opacity-100 lg:max-h-none'
-            } lg:mt-6`}
+            className={`overflow-hidden transition-all duration-500 ease-in-out lg:max-h-none ${showConfig ? 'max-h-[500px] opacity-100 mt-6' : 'max-h-0 opacity-0 lg:opacity-100 lg:max-h-none'
+              } lg:mt-6`}
           >
             <p className="text-sm font-medium text-white/90">Upload Resume</p>
             <input
@@ -118,7 +124,7 @@ const ReviewResume = () => {
               </div>
             </div>
           ) : (
-            <div className="flex-1 scrollbar-hide  overflow-y-auto max-h-[65vh] pr-2 text-sm text-white/80 whitespace-pre-wrap">
+            <div className="flex-1 scrollbar-hide overflow-y-auto max-h-[65vh] pr-2 text-sm text-white/80 whitespace-pre-wrap">
               <Markdown>{analysis}</Markdown>
             </div>
           )}
@@ -126,17 +132,17 @@ const ReviewResume = () => {
 
       </div>
       <div className="mt-6 p-6 bg-slate-700/10 border border-white/10 rounded-xl text-white">
-      <h2 className="text-lg font-bold mb-3">Get Your Resume Reviewed by AI</h2>
-      <p className="text-sm text-white/80 mb-2">
-        Our AI-powered resume reviewer analyzes your resume for structure, formatting, keywords, and impact — helping you stand out in competitive job markets.
-      </p>
-      <p className="text-sm text-white/80 mb-2">
-        Simply upload your resume, and our system will highlight strengths, point out weaknesses, and suggest improvements based on industry best practices.
-      </p>
-      <p className="text-sm text-white/80">
-        Whether you're a fresher or an experienced professional, you’ll get actionable tips to make your resume shine and increase your chances of landing interviews.
-      </p>
-    </div>
+        <h2 className="text-lg font-bold mb-3">Get Your Resume Reviewed by AI</h2>
+        <p className="text-sm text-white/80 mb-2">
+          Our AI-powered resume reviewer analyzes your resume for structure, formatting, keywords, and impact — helping you stand out in competitive job markets.
+        </p>
+        <p className="text-sm text-white/80 mb-2">
+          Simply upload your resume, and our system will highlight strengths, point out weaknesses, and suggest improvements based on industry best practices.
+        </p>
+        <p className="text-sm text-white/80">
+          Whether you're a fresher or an experienced professional, you’ll get actionable tips to make your resume shine and increase your chances of landing interviews.
+        </p>
+      </div>
     </div>
   );
 };

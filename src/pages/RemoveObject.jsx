@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import { Scissors, Sparkles, ChevronDown, ChevronUp } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { useAuth } from '@clerk/clerk-react';
@@ -11,9 +11,16 @@ const RemoveObject = () => {
   const [object, setObject] = useState('');
   const [loading, setLoading] = useState(false);
   const [processedImage, setProcessedImage] = useState('');
-  const [showLeftCol, setShowLeftCol] = useState(true); // toggle state
+  const [showLeftCol, setShowLeftCol] = useState(true); // default open
 
   const { getToken } = useAuth();
+
+  // ✅ Auto-close left col after processedImage is ready (only on mobile/tablet)
+  useEffect(() => {
+    if (processedImage && typeof window !== 'undefined' && window.innerWidth < 1024) {
+      setShowLeftCol(false);
+    }
+  }, [processedImage]);
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
@@ -38,8 +45,7 @@ const RemoveObject = () => {
       );
 
       if (data.success) {
-        setProcessedImage(data.content);
-        setShowLeftCol(false); // hide left col after generate
+        setProcessedImage(data.content); // ⬅️ triggers useEffect
       } else {
         toast.error(data.message);
       }

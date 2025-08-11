@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Image, Sparkles } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { useAuth } from '@clerk/clerk-react';
@@ -16,39 +16,40 @@ const GenerateImages = () => {
   const [publish, setPublish] = useState(false);
   const [loading, setLoading] = useState(false);
   const [content, setContent] = useState('');
-  const [showLeftCol, setShowLeftCol] = useState(true); // For toggle
+  const [showLeftCol, setShowLeftCol] = useState(true); // ✅ default open
 
   const { getToken } = useAuth();
 
-const onSubmitHandler = async (e) => {
-  e.preventDefault();
-
-  // Collapse left column immediately on submit (mobile/tablet only)
-if (typeof window !== 'undefined' && window.innerWidth < 1024) {
-  setShowLeftCol(false);
-}
-
-
-  try {
-    setLoading(true);
-    const prompt = `Generate an image in ${input} in the style ${selectedStyle}`;
-    const token = await getToken();
-    const { data } = await axios.post(
-      '/api/ai/generate-image',
-      { prompt, publish },
-      { headers: { Authorization: `Bearer ${token}` } }
-    );
-
-    if (data.success) {
-      setContent(data.content);
-    } else {
-      toast.error(data.message);
+  // ✅ Close left column only after image is generated (mobile/tablet only)
+  useEffect(() => {
+    if (content && typeof window !== 'undefined' && window.innerWidth < 1024) {
+      setShowLeftCol(false);
     }
-  } catch (error) {
-    toast.error(error.message);
-  }
-  setLoading(false);
-};
+  }, [content]);
+
+  const onSubmitHandler = async (e) => {
+    e.preventDefault();
+
+    try {
+      setLoading(true);
+      const prompt = `Generate an image in ${input} in the style ${selectedStyle}`;
+      const token = await getToken();
+      const { data } = await axios.post(
+        '/api/ai/generate-image',
+        { prompt, publish },
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+
+      if (data.success) {
+        setContent(data.content);
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
+    setLoading(false);
+  };
 
 
   return (
@@ -210,12 +211,7 @@ if (typeof window !== 'undefined' && window.innerWidth < 1024) {
         <p className="text-sm text-white/80 mb-2">
           Create high-quality, unique images instantly using our AI image generator — perfect for art, design projects, social media, and marketing.
         </p>
-        <p className="text-sm text-white/80 mb-2">
-          Simply enter your prompt or idea, and our system will bring it to life with vivid detail, creative compositions, and realistic textures.
-        </p>
-        <p className="text-sm text-white/80">
-          Whether you need concept art, product visuals, or just want to explore your creativity, our AI tool delivers stunning results in seconds.
-        </p>
+        
       </div>
     </div>
   );

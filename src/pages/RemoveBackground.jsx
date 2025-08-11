@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Eraser, Sparkles, ChevronDown } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { useAuth } from '@clerk/clerk-react';
@@ -10,44 +10,40 @@ const RemoveBackground = () => {
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
   const [processedImage, setProcessedImage] = useState('');
-  const [showLeftCol, setShowLeftCol] = useState(true); // mobile toggle
+  const [showLeftCol, setShowLeftCol] = useState(true); // ✅ default open
 
   const { getToken } = useAuth();
 
-const onSubmitHandler = async (e) => {
-  e.preventDefault();
-  if (!file) return toast.error('Please upload an image');
+  // ✅ Auto-close left col after image is processed (mobile/tablet only)
+  useEffect(() => {
+    if (processedImage && typeof window !== 'undefined' && window.innerWidth < 1024) {
+      setShowLeftCol(false);
+    }
+  }, [processedImage]);
 
-  // Collapse left column immediately on submit (mobile/tablet only)
-  if (typeof window !== 'undefined' && window.innerWidth < 1024) {
-    setShowLeftCol(false);
-  }
+  const onSubmitHandler = async (e) => {
+    e.preventDefault();
+    if (!file) return toast.error('Please upload an image');
 
-  try {
-    setLoading(true);
+    try {
+      setLoading(true);
 
-    const formData = new FormData();
-    formData.append('image', file);
+      const formData = new FormData();
+      formData.append('image', file);
 
-    const { data } = await axios.post(
-      '/api/ai/remove-image-background',
-      formData,
-      {
-        headers: {
-          Authorization: `Bearer ${await getToken()}`,
-          'Content-Type': 'multipart/form-data',
-        },
-      }
-    );
-
-    // rest of your code ...
+      const { data } = await axios.post(
+        '/api/ai/remove-image-background',
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${await getToken()}`,
+            'Content-Type': 'multipart/form-data',
+          },
+        }
+      );
 
       if (data.success) {
-        setProcessedImage(data.content);
-        // collapse left column on mobile/tablet so the user sees the result
-        if (typeof window !== 'undefined' && window.innerWidth < 1024) {
-          setShowLeftCol(false);
-        }
+        setProcessedImage(data.content); // ✅ triggers useEffect to close on mobile
       } else {
         toast.error(data.message);
       }
@@ -62,15 +58,11 @@ const onSubmitHandler = async (e) => {
     <div className="flex-1 overflow-y-auto bg-slate-950/10 scrollbar-hide">
       <div className="flex flex-col lg:flex-row gap-6">
 
-        {/* Left Column container */}
-        <div
-          className={`flex-1 flex flex-col w-full max-w-full bg-slate-700/10 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden transition-all duration-500 ease-in-out`}
-        >
-          {/* Heading Row (always visible) */}
+        {/* Left Column */}
+        <div className={`flex-1 flex flex-col w-full max-w-full bg-slate-700/10 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden transition-all duration-500 ease-in-out`}>
           <div
             className="flex items-center justify-between p-5 cursor-pointer"
             onClick={() => {
-              // only allow toggle on smaller screens (mobile/tablet)
               if (typeof window !== 'undefined' && window.innerWidth < 1024) {
                 setShowLeftCol((s) => !s);
               }
@@ -80,15 +72,12 @@ const onSubmitHandler = async (e) => {
               <Sparkles className="w-6 text-[#FF4938]" />
               <h1 className="text-xl font-semibold text-white">Background Removal</h1>
             </div>
-
-            {/* Arrow — visible on mobile only */}
             <button
               type="button"
               aria-label="Toggle background form"
               className="lg:hidden p-1 transition-transform duration-300"
               style={{ transform: `rotate(${showLeftCol ? 180 : 0}deg)` }}
               onClick={(e) => {
-                // stop outer div's onClick double toggling
                 e.stopPropagation();
                 if (typeof window !== 'undefined' && window.innerWidth < 1024) {
                   setShowLeftCol((s) => !s);
@@ -99,7 +88,7 @@ const onSubmitHandler = async (e) => {
             </button>
           </div>
 
-          {/* Collapsible form contents */}
+          {/* Collapsible Form */}
           <div
             className={`px-5 transition-all duration-500 ease-in-out lg:pt-0 lg:pb-5`}
             style={{
@@ -119,7 +108,6 @@ const onSubmitHandler = async (e) => {
               <p className="text-xs text-white/50 font-light mt-1">
                 Supports JPG, PNG, and other image formats
               </p>
-
               <button
                 type="submit"
                 disabled={loading}
@@ -152,56 +140,50 @@ const onSubmitHandler = async (e) => {
             </div>
           ) : (
             <div className="mt-3 flex-1 overflow-y-scroll scrollbar-hide flex flex-col gap-4">
-              <div className="flex flex-col gap-4">
-                <img
-                  src={processedImage}
-                  alt="Processed"
-                  className="max-w-full rounded-lg border border-white/10"
-                />
+              <img
+                src={processedImage}
+                alt="Processed"
+                className="max-w-full rounded-lg border border-white/10"
+              />
+              <button
+                type="button"
+                onClick={async () => {
+                  try {
+                    const response = await fetch(processedImage, { mode: 'cors' });
+                    if (!response.ok) throw new Error('Image fetch failed');
 
-                <button
-                  type="button"
-                  onClick={async () => {
-                    try {
-                      const response = await fetch(processedImage, { mode: 'cors' });
-                      if (!response.ok) throw new Error('Image fetch failed');
+                    const blob = await response.blob();
+                    const blobUrl = window.URL.createObjectURL(blob);
 
-                      const blob = await response.blob();
-                      const blobUrl = window.URL.createObjectURL(blob);
+                    const link = document.createElement('a');
+                    link.href = blobUrl;
+                    link.download = 'background-removed.png';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    window.URL.revokeObjectURL(blobUrl);
 
-                      const link = document.createElement('a');
-                      link.href = blobUrl;
-                      link.download = 'background-removed.png';
-                      document.body.appendChild(link);
-                      link.click();
-                      document.body.removeChild(link);
-                      window.URL.revokeObjectURL(blobUrl);
-
-                      toast.success("Image downloaded!", {
-                        duration: 3000,
-                        style: { background: '#5df252', color: '#ffffff', border: '1px solid #00AD25' },
-                        icon: '✅'
-                      });
-                    } catch (err) {
-                      toast.error("Download failed!", {
-                        duration: 3000,
-                        style: { background: '#2f1c1c', color: '#ffffff', border: '1px solid #ff4d4d' },
-                        icon: '⚠️'
-                      });
-                      console.error("Download error:", err);
-                    }
-                  }}
+                    toast.success("Image downloaded!", {
+                      duration: 3000,
+                      style: { background: '#5df252', color: '#ffffff', border: '1px solid #00AD25' },
+                      icon: '✅'
+                    });
+                  } catch (err) {
+                    toast.error("Download failed!", {
+                      duration: 3000,
+                      style: { background: '#2f1c1c', color: '#ffffff', border: '1px solid #ff4d4d' },
+                      icon: '⚠️'
+                    });
+                  }
+                }}
                 className="bg-slate-700/10 border border-white/20 text-white px-4 py-2 rounded-lg text-sm text-center w-fit backdrop-blur-sm"
-                >
-                  Download Image
-                </button>
-              </div>
+              >
+                Download Image
+              </button>
             </div>
           )}
         </div>
       </div>
-
-      {/* Optional SEO Article Section (kept unchanged) */}
       <div className="mt-6 p-6 bg-slate-700/10 border border-white/10 rounded-xl hidden sm:block text-white">
         <h2 className="text-lg font-bold mb-3">Remove Background from Images Instantly</h2>
         <p className="text-sm text-white/80 mb-2">
@@ -215,6 +197,9 @@ const onSubmitHandler = async (e) => {
         </p>
       </div>
     </div>
+
+
+
   );
 };
 
