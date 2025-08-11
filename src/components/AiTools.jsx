@@ -108,7 +108,7 @@ const AiTools = () => {
 <h3
   className={`font-bold ${
     tool.title === "AIMatrix"
-      ? "bg-gradient-to-r from-[#112d4e] via-[#203f64] to-[#112d4e] bg-clip-text text-transparent text-7xl sm:text-6xl md:text-7xl lg:text-8xl"
+      ? "bg-gradient-to-r from-[#112d4e] via-[#203f64] to-[#112d4e] bg-clip-text text-transparent text-6xl sm:text-6xl md:text-7xl lg:text-8xl"
       : "text-xl text-slate-300"
   }`}
 >

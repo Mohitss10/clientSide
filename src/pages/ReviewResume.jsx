@@ -45,7 +45,7 @@ const ReviewResume = () => {
   };
 
   return (
-    <div className="flex-1 overflow-y-auto bg-slate-950/10 scrollbar-hide">
+    <div className="flex-1  overflow-y-hidden bg-slate-950/10 scrollbar-hide">
       <div className="flex flex-col lg:flex-row gap-6">
 
         {/* Left Column */}
