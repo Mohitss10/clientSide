@@ -32,7 +32,7 @@ const Layout = () => {
           onClick={() => navigate('/')}
         >
           <img src={assets.logo} alt="logo" className="w-7" />
-          <span className="bg-gradient-to-r from-gray-300 via-gray-400 to-gray-500 bg-clip-text text-transparent text-3xl">
+          <span className="bg-gradient-to-r from-gray-300 via-gray-400 to-gray-500 bg-clip-text text-transparent text-2xl">
             AIMatrix
           </span>
         </div>
