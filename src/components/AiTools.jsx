@@ -68,18 +68,19 @@ const AiTools = () => {
 
   const handleToolClick = (tool) => {
     if (!user) {
-      toast.error("🚀 Please sign in first to use this awesome AI tool!", {
-  style: {
-    background: "#334155",
-    color: "#fff",
-    borderRadius: "8px",
-    padding: "12px",
-    whiteSpace: "nowrap",
-    maxWidth: "100%",
-    overflow: "hidden",
-    textOverflow: "ellipsis"
-  },
-});
+      toast.error(" Please sign in first to use this awesome AI tool!🚀", {
+        style: {
+          text:"center",
+          background: "#334155",
+          color: "#fff",
+          borderRadius: "10px",
+          padding: "12px",
+          whiteSpace: "nowrap",
+          maxWidth: "70%",
+          overflow: "hidden",
+          textOverflow: "ellipsis"
+        },
+      });
 
       return;
     }
@@ -121,19 +122,17 @@ const AiTools = () => {
 
                 <div>
                   <h3
-                    className={`font-bold ${
-                      tool.title === "AIMatrix"
+                    className={`font-bold ${tool.title === "AIMatrix"
                         ? "bg-gradient-to-r from-[#112d4e] via-[#203f64] to-[#112d4e] bg-clip-text text-transparent text-6xl sm:text-6xl md:text-7xl lg:text-8xl"
                         : "text-xl text-slate-300"
-                    }`}
+                      }`}
                   >
                     {tool.title}
                   </h3>
 
                   <p
-                    className={`mt-2 text-slate-400 ${
-                      tool.title === "AIMatrix" ? "text-lg sm:text-xl" : "text-sm"
-                    }`}
+                    className={`mt-2 text-slate-400 ${tool.title === "AIMatrix" ? "text-lg sm:text-xl" : "text-sm"
+                      }`}
                   >
                     {tool.description}
                   </p>
