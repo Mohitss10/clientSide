@@ -96,7 +96,7 @@ const GenerateImages = () => {
             {imageStyle.map((item) => (
               <span
                 onClick={() => setSelectedStyle(item)}
-                className={`text-[10px] sm:text-xs px-3 py-0.5 sm:px-4 sm:py-1 border rounded-full cursor-pointer transition ${selectedStyle === item
+                className={`text-[15px] sm:text-xs px-3 py-0.5 sm:px-4 sm:py-1 border rounded-full cursor-pointer transition ${selectedStyle === item
                     ? 'bg-[#0c1c13] text-green-400 border-green-500'
                     : 'text-white/70 border-white/10 hover:bg-white/5'
                   }`}
@@ -179,7 +179,7 @@ const GenerateImages = () => {
                     toast.success("Image downloaded!", {
                       duration: 3000,
                       style: {
-                        background: '#5df252',
+                        background: '#334155',
                         color: '#ffffff',
                         border: '1px solid #00AD25'
                       },
@@ -189,7 +189,7 @@ const GenerateImages = () => {
                     toast.error("Download failed!", {
                       duration: 3000,
                       style: {
-                        background: '#2f1c1c',
+                        background: '#334155',
                         color: '#ffffff',
                         border: '1px solid #ff4d4d'
                       },

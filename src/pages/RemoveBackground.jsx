@@ -165,13 +165,13 @@ const RemoveBackground = () => {
 
                     toast.success("Image downloaded!", {
                       duration: 3000,
-                      style: { background: '#5df252', color: '#ffffff', border: '1px solid #00AD25' },
+                      style: { background: '#334155', color: '#ffffff', border: '1px solid #00AD25' },
                       icon: '✅'
                     });
                   } catch (err) {
                     toast.error("Download failed!", {
                       duration: 3000,
-                      style: { background: '#2f1c1c', color: '#ffffff', border: '1px solid #ff4d4d' },
+                      style: { background: '#334155', color: '#ffffff', border: '1px solid #ff4d4d' },
                       icon: '⚠️'
                     });
                   }
