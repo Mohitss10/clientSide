@@ -91,14 +91,14 @@ const GenerateImages = () => {
             required
           />
 
-          <p className="mt-6 text-sm font-medium text-white/90">Style</p>
-          <div className="mt-3 flex gap-3 flex-wrap">
+          <p className="mt-6 text-sm font-medium  text-white/90">Style</p>
+          <div className="mt-3 flex gap-2 flex-wrap">
             {imageStyle.map((item) => (
               <span
                 onClick={() => setSelectedStyle(item)}
-                className={`text-xs px-4 py-1 border rounded-full cursor-pointer transition ${selectedStyle === item
-                  ? 'bg-[#0c1c13] text-green-400 border-green-500'
-                  : 'text-white/70 border-white/10 hover:bg-white/5'
+                className={`text-[10px] sm:text-xs px-3 py-0.5 sm:px-4 sm:py-1 border rounded-full cursor-pointer transition ${selectedStyle === item
+                    ? 'bg-[#0c1c13] text-green-400 border-green-500'
+                    : 'text-white/70 border-white/10 hover:bg-white/5'
                   }`}
                 key={item}
               >
@@ -106,6 +106,7 @@ const GenerateImages = () => {
               </span>
             ))}
           </div>
+
 
           <div className="my-6 flex items-center gap-2">
             <label className="relative cursor-pointer" htmlFor="publishToggle">
@@ -211,7 +212,7 @@ const GenerateImages = () => {
         <p className="text-sm text-white/80 mb-2">
           Create high-quality, unique images instantly using our AI image generator — perfect for art, design projects, social media, and marketing.
         </p>
-        
+
       </div>
     </div>
   );
