@@ -69,33 +69,33 @@ const Hero = () => {
       </div>
 
       {/* 🔵 Blurry AIMatrix background text */}
-{/* 🔵 Blurry AIMatrix background text */}
-<div
-  aria-hidden="true"
-  className="pointer-events-none select-none absolute inset-0 flex justify-center pt-[10vh] px-10 overflow-visible hidden xl:flex"
-  style={{ userSelect: "none" /* , outline: '1px solid red' */ }}
->
-  <div
-    className="flex gap-[-0.15em]"
-    style={{ filter: "blur(4px)", opacity: 0.07, userSelect: "none" }}
-  >
-    {umbrellaLetters.map((letter, idx) => (
-      <span
-        key={idx}
-        className="uppercase font-bold text-white "
-        style={{
-          fontSize: "300px",
-          transformOrigin: "bottom center",
-          transform: `scaleX(${umbrellaScales[idx]})`,
-          display: "inline-block",
-          whiteSpace: "pre",
-        }}
+      {/* 🔵 Blurry AIMatrix background text */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none select-none absolute inset-0 justify-center pt-[3vh] px-10 overflow-visible hidden xl:flex"
+        style={{ userSelect: "none" /* , outline: '1px solid red' */ }}
       >
-        {letter}
-      </span>
-    ))}
-  </div>
-</div>
+        <div
+          className="flex gap-[-0.15em]"
+          style={{ filter: "blur(4px)", opacity: 0.07, userSelect: "none" }}
+        >
+          {umbrellaLetters.map((letter, idx) => (
+            <span
+              key={idx}
+              className="uppercase font-bold text-white "
+              style={{
+                fontSize: "300px",
+                transformOrigin: "bottom center",
+                transform: `scaleX(${umbrellaScales[idx]})`,
+                display: "inline-block",
+                whiteSpace: "pre",
+              }}
+            >
+              {letter}
+            </span>
+          ))}
+        </div>
+      </div>
 
 
 
@@ -105,7 +105,7 @@ const Hero = () => {
       {/* 🧠 Headline animation */}
       <div className="text-center mb-6 z-10">
         <motion.h1
-          className="text-[30px] sm:text-5xl md:text-5xl font-medium mx-auto leading-tight sm:p-4 tracking-tight flex flex-wrap justify-center gap-x-3"
+          className="text-[25px] sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-medium mx-auto leading-tight sm:p-4 tracking-tight flex flex-wrap justify-center gap-x-3"
           variants={containerVariant}
           initial="initial"
           animate="animate"
