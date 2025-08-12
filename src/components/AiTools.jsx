@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "@clerk/clerk-react";
+import toast from "react-hot-toast";
 import { SquarePen, Hash, Image, Eraser, Scissors, FileText } from "lucide-react";
 
 const aiToolsData = [
@@ -65,6 +66,26 @@ const AiTools = () => {
   const navigate = useNavigate();
   const { user } = useUser();
 
+  const handleToolClick = (tool) => {
+    if (!user) {
+      toast.error("🚀 Please sign in first to use this awesome AI tool!", {
+  style: {
+    background: "#334155",
+    color: "#fff",
+    borderRadius: "8px",
+    padding: "12px",
+    whiteSpace: "nowrap",
+    maxWidth: "100%",
+    overflow: "hidden",
+    textOverflow: "ellipsis"
+  },
+});
+
+      return;
+    }
+    if (tool.path) navigate(tool.path);
+  };
+
   return (
     <section className="py-10 sm:py-16 px-4 sm:px-10 xl:px-20">
       <div className="max-w-screen-2xl mx-auto">
@@ -77,63 +98,50 @@ const AiTools = () => {
             Discover powerful AI tools in a responsive, modern layout designed to boost your creativity and workflow.
           </p>
         </header>
-<div className="mt-12 block space-y-4 sm:grid sm:gap-4 sm:space-y-1 sm:grid-cols-2 lg:grid-cols-4 auto-rows-[200px] md:auto-rows-[250px]">  {aiToolsData.map((tool, index) => (
-<div
-  key={index}
-  onClick={() => user && tool.path && navigate(tool.path)}
-  className={`relative overflow-hidden p-6 rounded-2xl shadow-lg transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl cursor-pointer border border-white/10 ${tool.colSpan} ${tool.rowSpan}`}
-  style={{
-    background:
-      tool.title === "AIMatrix"
-        ? "linear-gradient(135deg, #0a192f, #112d4e, #1b3b6f)"
-        : "linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))",
-  }}
->
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-slate-00/50 backdrop-blur-3xl rounded-2xl" />
+        <div className="mt-12 block space-y-4 sm:grid sm:gap-4 sm:space-y-1 sm:grid-cols-2 lg:grid-cols-4 auto-rows-[200px] md:auto-rows-[250px]">
+          {aiToolsData.map((tool, index) => (
+            <div
+              key={index}
+              onClick={() => handleToolClick(tool)}
+              className={`relative overflow-hidden p-6 rounded-2xl shadow-lg transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl cursor-pointer border border-white/10 ${tool.colSpan} ${tool.rowSpan}`}
+              style={{
+                background:
+                  tool.title === "AIMatrix"
+                    ? "linear-gradient(135deg, #0a192f, #112d4e, #1b3b6f)"
+                    : "linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))",
+              }}
+            >
+              <div className="absolute inset-0 bg-slate-00/50 backdrop-blur-3xl rounded-2xl" />
 
-      {/* Content */}
-      <div>
-        {/* Empty? */}
-      </div>
-      <div className="relative z-10 flex flex-col justify-between h-full">
-        {/* Icon */}
-        {tool.title !== "AIMatrix" && (
-          <tool.Icon className="text-purple-300 w-10 h-10 mb-4" />
-        )}
+              <div className="relative z-10 flex flex-col justify-between h-full">
+                {tool.title !== "AIMatrix" && (
+                  <tool.Icon className="text-purple-300 w-10 h-10 mb-4" />
+                )}
 
-        {/* Title */}
-        <div>
-<h3
-  className={`font-bold ${
-    tool.title === "AIMatrix"
-      ? "bg-gradient-to-r from-[#112d4e] via-[#203f64] to-[#112d4e] bg-clip-text text-transparent text-6xl sm:text-6xl md:text-7xl lg:text-8xl"
-      : "text-xl text-slate-300"
-  }`}
->
-  {tool.title}
-</h3>
+                <div>
+                  <h3
+                    className={`font-bold ${
+                      tool.title === "AIMatrix"
+                        ? "bg-gradient-to-r from-[#112d4e] via-[#203f64] to-[#112d4e] bg-clip-text text-transparent text-6xl sm:text-6xl md:text-7xl lg:text-8xl"
+                        : "text-xl text-slate-300"
+                    }`}
+                  >
+                    {tool.title}
+                  </h3>
 
-
-
-
-
-
-          {/* Description */}
-          <p
-            className={`mt-2 text-slate-400 ${
-              tool.title === "AIMatrix" ? "text-lg sm:text-xl" : "text-sm"
-            }`}
-          >
-            {tool.description}
-          </p>
+                  <p
+                    className={`mt-2 text-slate-400 ${
+                      tool.title === "AIMatrix" ? "text-lg sm:text-xl" : "text-sm"
+                    }`}
+                  >
+                    {tool.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
-      </div>
-    </div>
-  ))}
-</div>
-
       </div>
     </section>
   );
