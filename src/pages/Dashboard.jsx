@@ -53,7 +53,6 @@ const Dashboard = () => {
 
   return (
     <div className=" min-h-[60vh] border-white/10 lg:min-h-[85vh] sm:mx-auto overflow-y-auto scrollbar-hide border p-4 rounded-xl">
-
       {/* Card Section */}
       {/* <div className="flex gap-4 overflow-x-auto sm:flex-wrap scrollbar-hide justify-center">
         {/* Total creation card */}
@@ -80,6 +79,8 @@ const Dashboard = () => {
             <Gem className="w-5 text-white" />
           </div>
         </div>
+            <h1 className="text-2xl text-white pl-3 font-semibold mt-2">Creations</h1>
+
       
 <div className="h-[43vh] sm:h-[63vh] mt-5 scrollable-container overflow-y-auto">
   <Community />

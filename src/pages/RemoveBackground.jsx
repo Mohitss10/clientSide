@@ -184,7 +184,7 @@ const RemoveBackground = () => {
           )}
         </div>
       </div>
-      <div className="mt-6 p-6 bg-slate-700/10 border border-white/10 rounded-xl hidden sm:block text-white">
+      <div className="mt-6 p-6 bg-slate-700/10 border border-white/10 rounded-xl text-white">
         <h2 className="text-lg font-bold mb-3">Remove Background from Images Instantly</h2>
         <p className="text-sm text-white/80 mb-2">
           Removing backgrounds from images has never been easier. With our AI-powered background remover, you can upload any image and get a clean, transparent background in seconds — perfect for product photos, profile pictures, or creative projects.
@@ -192,9 +192,7 @@ const RemoveBackground = () => {
         <p className="text-sm text-white/80 mb-2">
           Simply upload your image, click “Remove Background,” and our system will automatically detect and remove the background while keeping your subject sharp and clear.
         </p>
-        <p className="text-sm text-white/80">
-          No Photoshop skills required — just fast, accurate, and high-quality results every time.
-        </p>
+        
       </div>
     </div>
 

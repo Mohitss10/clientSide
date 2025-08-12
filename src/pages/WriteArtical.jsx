@@ -152,7 +152,7 @@ const onSubmitHandler = async (e) => {
           )}
         </div>
       </div>
-      <div className="mt-6 p-6 bg-slate-700/10 border border-white/10 rounded-xl text-white hidden sm:block">
+      <div className="mt-6 p-6 bg-slate-700/10 border border-white/10 rounded-xl text-white">
         <h2 className="text-lg font-bold mb-3">Write High-Quality Articles with AI</h2>
         <p className="text-sm text-white/80 mb-2">
           Our AI article writer helps you create engaging, well-structured, and SEO-friendly content in just minutes — perfect for blogs, websites, and social media.

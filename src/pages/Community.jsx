@@ -71,7 +71,7 @@ const Community = () => {
 
   return (
     <div className="flex-1 bg-slate-700/20 h-full flex flex-col  text-slate-300 p-2 border border-white/10 rounded-2xl">
-              <h1 className="text-2xl pl-3 font-semibold mt-2">Creations</h1>
+              <h1 className="text-2xl pl-3 font-medium mt-2">Recent Creations</h1>
 
       <div className="flex-1 rounded-2xl p-3 overflow-y-auto pr-2 scrollbar-hide">
 

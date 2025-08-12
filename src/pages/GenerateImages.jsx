@@ -206,7 +206,7 @@ const GenerateImages = () => {
         </div>
 
       </div>
-      <div className="mt-6 p-6 bg-slate-700/10 border border-white/10 rounded-xl text-white hidden sm:block">
+      <div className="mt-6 p-6 bg-slate-700/10 border border-white/10 rounded-xl text-white">
         <h2 className="text-lg font-bold mb-3">Generate Stunning Images with AI</h2>
         <p className="text-sm text-white/80 mb-2">
           Create high-quality, unique images instantly using our AI image generator — perfect for art, design projects, social media, and marketing.
