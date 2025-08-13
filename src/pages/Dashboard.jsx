@@ -79,7 +79,7 @@ const Dashboard = () => {
             <Gem className="w-5" />
           </div>
         </div>
-            <h1 className="text-2xl pl-3  mt-3">From your words to a work of art⚡</h1>
+            <h1 className="text-xl pl-3  mt-3">From your words to a work of art⚡</h1>
 
       
 <div className="h-[43vh] sm:h-[58vh] mt-5 scrollable-container overflow-y-auto">

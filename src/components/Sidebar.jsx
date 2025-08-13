@@ -72,6 +72,10 @@ const Sidebar = ({ sidebar, setSidebar }) => {
             className="w-5 h-5  hover:text-white cursor-pointer"
           />
         </div>
+           <span className="sm:hidden ml-2 text-[19px] font-medium text-gray-700 dark:text-gray-200">
+  Change Theme
+</span>
+
         <div className="block sm:hidden">
           <ThemeToggle />
         </div>

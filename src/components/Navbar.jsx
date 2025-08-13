@@ -1,15 +1,13 @@
 import React from 'react'
 import { assets } from '../assets/assets'
 import { useNavigate } from 'react-router-dom'
-import { ArrowRight } from 'lucide-react'
 import { useClerk, UserButton, useUser } from '@clerk/clerk-react'
 import { motion } from 'framer-motion'
-import ThemeToggle from './ThemeToggle' // ⬅ Import our theme toggle
+import ThemeToggle from './ThemeToggle'
 
 const Navbar = () => {
   const navigate = useNavigate()
   const { user } = useUser()
-  const { openSignIn } = useClerk()
 
   return (
     <motion.div
@@ -24,33 +22,23 @@ const Navbar = () => {
         onClick={() => navigate('./Hero')}
       >
         <img src={assets.logo} alt="logo" className="w-7" />
+        {/* Text only visible on small screens */}
         <span className="bg-gradient-to-r from-gray-300 via-gray-400 to-gray-500 bg-clip-text text-transparent text-2xl">
           AIMatrix
         </span>
       </div>
 
       {/* Center: Theme toggle */}
-      <div className='flex gap-2'>
-      {/* Right: Auth buttons */}
-      <div className="flex items-center gap-3">
-        {user ? (
-          <UserButton />
-        ) : (
-          <button
-            onClick={openSignIn}
-            className="flex items-center gap-2 rounded-full sm:text-[16px] text-[12px] cursor-pointer bg-primary text-white px-3 sm:px-5 py-2"
-          >
-            Create Account
-            <ArrowRight className="h-4 w-4" />
-          </button>
-        )}
-      </div>
-      <div className="flex justify-center">
+      <div className="flex gap-2 items-center">
+        {/* Auth buttons */}
+        <div className="flex items-center gap-3">
+          {user ? <UserButton /> : null}
+        </div>
+
+        {/* Theme toggle */}
         <ThemeToggle />
       </div>
-      </div>
     </motion.div>
-
   )
 }
 
