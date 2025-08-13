@@ -26,7 +26,7 @@ export default function ThemeToggle() {
     ${theme === "dark" ? "bg-gray-800 text-yellow-400" : "bg-white text-blue-500"}
   `}
         >
-            {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+            {theme === "dark" ? <Sun size={15} /> : <Moon size={15} />}
         </button>
 
     );

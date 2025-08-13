@@ -14,7 +14,7 @@ const Plan = () => {
       </div>
 
       <div className="max-w-5xl mx-auto sm:px-3">
-        <div className="rounded-2xl border sm:border-white/20 transition-all duration-500 ease-in-out hover:shadow-3xl hover:scale-[1.02]">
+        <div className="rounded-2xl  transition-all duration-500 ease-in-out hover:shadow-3xl hover:scale-[1.02]">
           <div className=" rounded-2xl sm:p-4 bg-transparent">
             <PricingTable />
           </div>
