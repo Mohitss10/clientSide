@@ -3,6 +3,7 @@ import { Protect, useClerk, useUser } from '@clerk/clerk-react';
 import { House, SquarePen, Eraser, FileText, Hash, Image, Scissors, Users, LogOut } from 'lucide-react';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import ThemeToggle from './ThemeToggle';
 
 const navItems = [
   { to: '/ai', label: 'Dashboard', Icon: House },
@@ -20,26 +21,23 @@ const Sidebar = ({ sidebar, setSidebar }) => {
   const { signOut, openUserProfile } = useClerk();
 
   return (
-<div
-  className={`
+    <div
+      className={`
     fixed top-14 left-0 z-50
-    h-[calc(100vh-55px)] sm:h-[86.9vh]
-    w-60 sm:w-60
-   
-    lg:bg-transparent lg:backdrop-blur-none lg:border-none
-    p-4 sm:p-6
-    transform ${sidebar ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'} 
-    transition-all duration-500 ease-[cubic-bezier(.4,0,.2,1)]
+    h-[calc(100vh-55px)] sm:h-[86.9vh] text-slate-5500
+    w-60 sm:w-60 lg:bg-transparent lg:backdrop-blur-none lg:border-none
+    p-4 sm:p-6 transform ${sidebar ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'} 
+    transition-all duration-100 ease-[cubic-bezier(.4,0,.2,1)]
     sm:translate-x-0 sm:opacity-100 sm:static sm:block  flex justify-center
   `}
->
+    >
 
       <div className="h-full flex flex-col">
         <div className="py-6">
           <img src={user.imageUrl} alt="User" className="w-14 rounded-full mx-auto" />
-          <h1 className="mt-2 text-center text-white text-sm">{user.fullName}</h1>
+          <h1 className="mt-2 text-center  text-sm">{user.fullName}</h1>
 
-          <div className="mt-8 pt-6 border-t border-white/10 space-y-2 text-sm text-white">
+          <div className="mt-1 pt-6 border-t border-white/10 space-y-2 text-sm ">
             {navItems.map(({ to, label, Icon }) => (
               <NavLink
                 key={to}
@@ -47,8 +45,7 @@ const Sidebar = ({ sidebar, setSidebar }) => {
                 end={to === '/ai'}
                 onClick={() => setSidebar(false)}
                 className={({ isActive }) =>
-                  `flex items-center gap-3 px-4 py-2 rounded-full hover:bg-white/10 transition ${
-                    isActive ? 'bg-white/10 font-medium' : 'text-white/70'
+                  `flex items-center gap-3 px-4 py-2 rounded-full hover:bg-white/10 transition ${isActive ? 'bg-white/10 font-medium' : ''
                   }`
                 }
               >
@@ -63,8 +60,8 @@ const Sidebar = ({ sidebar, setSidebar }) => {
           <div onClick={openUserProfile} className="flex items-center gap-2 cursor-pointer">
             <img src={user.imageUrl} className="w-6 h-6 rounded-full" alt="user" />
             <div>
-              <h1 className="text-sm text-white">{user.fullName}</h1>
-              <p className="text-xs text-white/70">
+              <h1 className="text-sm ">{user.fullName}</h1>
+              <p className="text-xs ">
                 <Protect plan="premium" fallback="Free">Premium </Protect>
                 Plan
               </p>
@@ -72,10 +69,14 @@ const Sidebar = ({ sidebar, setSidebar }) => {
           </div>
           <LogOut
             onClick={() => signOut()}
-            className="w-5 h-5 text-white/60 hover:text-white cursor-pointer"
+            className="w-5 h-5  hover:text-white cursor-pointer"
           />
         </div>
+        <div className="block sm:hidden">
+          <ThemeToggle />
+        </div>
       </div>
+
     </div>
   );
 };

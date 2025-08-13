@@ -22,32 +22,32 @@ const BlogTitles = () => {
 
 
 
-const onSubmitHandler = async (e) => {
-  e.preventDefault();
+  const onSubmitHandler = async (e) => {
+    e.preventDefault();
 
-  try {
-    setLoading(true);
-    const prompt = `Generate a blog title for the keyword ${input} in the category ${selectedCategories}`;
-    const token = await getToken();
-    const { data } = await axios.post(
-      '/api/ai/generate-blog-title',
-      { prompt },
-      { headers: { Authorization: `Bearer ${token}` } }
-    );
+    try {
+      setLoading(true);
+      const prompt = `Generate a blog title for the keyword ${input} in the category ${selectedCategories}`;
+      const token = await getToken();
+      const { data } = await axios.post(
+        '/api/ai/generate-blog-title',
+        { prompt },
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
 
-    if (data.success) {
-      setContent(data.content);
-      if (typeof window !== 'undefined' && window.innerWidth < 1024) {
-        setShowLeftCol(false);
+      if (data.success) {
+        setContent(data.content);
+        if (typeof window !== 'undefined' && window.innerWidth < 1024) {
+          setShowLeftCol(false);
+        }
+      } else {
+        toast.error(data.message || 'Failed to generate');
       }
-    } else {
-      toast.error(data.message || 'Failed to generate');
+    } catch (error) {
+      toast.error(error?.message || 'Something went wrong!');
     }
-  } catch (error) {
-    toast.error(error?.message || 'Something went wrong!');
-  }
-  setLoading(false);
-};
+    setLoading(false);
+  };
 
 
   return (
@@ -68,7 +68,7 @@ const onSubmitHandler = async (e) => {
           >
             <div className="flex items-center gap-3">
               <Sparkles className="w-6 text-[#8E37EB]" />
-              <h1 className="text-xl font-semibold text-white">AI Title Generator</h1>
+              <h1 className="text-xl font-semibold ">AI Title Generator</h1>
             </div>
 
             {/* Arrow — visible on mobile only */}
@@ -84,7 +84,7 @@ const onSubmitHandler = async (e) => {
                 }
               }}
             >
-              <ChevronDown className="w-5 h-5 text-white" />
+              <ChevronDown className="w-5 h-5 " />
             </button>
           </div>
 
@@ -97,30 +97,31 @@ const onSubmitHandler = async (e) => {
             }}
           >
             <form onSubmit={onSubmitHandler} className="flex flex-col pb-5">
-              <p className="mt-2 text-sm font-medium text-white/90">Keyword</p>
+              <p className="mt-2 text-sm font-medium ">Keyword</p>
               <input
                 onChange={(e) => setInput(e.target.value)}
                 value={input}
                 type="text"
-                className="w-full text-white p-2 mt-2 outline-none text-sm rounded-md border border-white/10 bg-transparent placeholder:text-white/40"
+                className="w-full p-2 mt-2 outline-none text-sm rounded-md border border-slate-400 bg-transparent placeholder:text-slate-500 dark:placeholder:text-slate-400"
                 placeholder="The future of artificial intelligence is..."
                 required
               />
 
-              <p className="mt-6 text-sm font-medium text-white/90">Category</p>
+              <p className="mt-6 text-sm font-medium ">Category</p>
               <div className="mt-3 flex gap-3 flex-wrap">
                 {blogCategories.map((item) => (
-                  <span
-                    key={item}
-                    onClick={() => setSelectedCategories(item)}
-                    className={`text-xs px-4 py-1 border rounded-full cursor-pointer transition ${
-                      selectedCategories === item
-                        ? 'bg-[#2d1c3f] text-purple-400 border-purple-500'
-                        : 'text-white/70 border-white/10 hover:bg-white/5'
-                    }`}
-                  >
-                    {item}
-                  </span>
+<span
+  key={item}
+  onClick={() => setSelectedCategories(item)}
+  className={`text-xs px-4 py-1 border rounded-full cursor-pointer transition-all duration-300 ease-in-out
+    ${selectedCategories === item
+      ? 'border-purple-500 text-purple-400 shadow-md shadow-purple-500/30 scale-105'
+      : 'border-gray-400/40 hover:shadow-md hover:shadow-gray-500/30 hover:scale-105'
+    }`}
+>
+  {item}
+</span>
+
                 ))}
               </div>
 
@@ -143,18 +144,18 @@ const onSubmitHandler = async (e) => {
         <div className="flex-1 gap-4 w-full max-w-full p-5 rounded-2xl flex flex-col bg-slate-700/10 backdrop-blur-sm border border-white/10">
           <div className="flex items-center gap-3">
             <Hash className="w-5 h-5 text-[#8E37EB]" />
-            <h1 className="text-xl font-semibold text-white">Generated Titles</h1>
+            <h1 className="text-xl font-semibold ">Generated Titles</h1>
           </div>
 
           {!content ? (
             <div className="flex-1 flex justify-center items-center">
-              <div className="text-sm flex flex-col items-center gap-5 text-gray-400">
+              <div className="text-sm flex flex-col items-center gap-5 ">
                 <Hash className="w-9 h-9" />
                 <p>Enter a topic and click "Generate Title" to get started</p>
               </div>
             </div>
           ) : (
-            <div className="mt-3 h-full overflow-y-scroll scrollbar-hide pr-2 custom-scrollbar text-sm text-white/80">
+            <div className="mt-3 h-full overflow-y-scroll scrollbar-hide pr-2 custom-scrollbar text-sm ">
               <div className="reset-tw">
                 <Markdown>{content}</Markdown>
               </div>
@@ -163,15 +164,15 @@ const onSubmitHandler = async (e) => {
         </div>
       </div>
 
-      <div className="mt-6 p-6 bg-slate-700/10 border border-white/10 rounded-xl text-white">
+      <div className="mt-6 p-6 bg-slate-700/10 border border-white/10 rounded-xl ">
         <h2 className="text-lg font-bold mb-3">Generate Catchy Blog Titles Instantly</h2>
-        <p className="text-sm text-white/80 mb-2">
+        <p className="text-sm  mb-2">
           Struggling to come up with engaging blog titles? Our AI-powered tool creates attention-grabbing, SEO-friendly titles in seconds.
         </p>
-        <p className="text-sm text-white/80 mb-2">
+        <p className="text-sm  mb-2">
           Simply enter your topic or keywords, and our system will suggest multiple title ideas to help your content stand out.
         </p>
-        <p className="text-sm text-white/80">
+        <p className="text-sm ">
           Perfect for bloggers, marketers, and content creators looking to boost clicks and attract readers effortlessly.
         </p>
       </div>

@@ -55,7 +55,7 @@ const RemoveBackground = () => {
   };
 
   return (
-    <div className="flex-1 overflow-y-auto bg-slate-950/10 scrollbar-hide">
+    <div className="flex-1 overflow-y-auto  scrollbar-hide">
       <div className="flex flex-col lg:flex-row gap-6">
 
         {/* Left Column */}
@@ -70,7 +70,7 @@ const RemoveBackground = () => {
           >
             <div className="flex items-center gap-3">
               <Sparkles className="w-6 text-[#FF4938]" />
-              <h1 className="text-xl font-semibold text-white">Background Removal</h1>
+              <h1 className="text-xl font-semibold ">Background Removal</h1>
             </div>
             <button
               type="button"
@@ -84,7 +84,7 @@ const RemoveBackground = () => {
                 }
               }}
             >
-              <ChevronDown className="w-5 h-5 text-white" />
+              <ChevronDown className="w-5 h-5" />
             </button>
           </div>
 
@@ -97,21 +97,22 @@ const RemoveBackground = () => {
             }}
           >
             <form onSubmit={onSubmitHandler} className="flex flex-col pb-5">
-              <p className="mt-2 text-sm font-medium text-white/90">Upload Image</p>
+              <p className="mt-2 text-sm font-medium ">Upload Image</p>
               <input
                 onChange={(e) => setFile(e.target.files[0])}
                 type="file"
                 accept="image/*"
-                className="w-full p-2 mt-2 outline-none text-sm rounded-md border border-white/10 bg-transparent text-white placeholder:text-white/40"
+                className="w-full p-2 mt-2 outline-none text-sm rounded-md border border-slate-400 bg-transparent  file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-gray-200/20  hover:file:bg-gray-200/30"
                 required
               />
-              <p className="text-xs text-white/50 font-light mt-1">
+
+              <p className="text-xs  font-light mt-1">
                 Supports JPG, PNG, and other image formats
               </p>
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full flex justify-center items-center gap-2 bg-gradient-to-r from-[#F6AB41] to-[#FF4938] text-white px-4 py-3 mt-8 text-sm rounded-lg cursor-pointer"
+                className="w-full flex justify-center items-center gap-2 bg-gradient-to-r from-[#F6AB41] to-[#FF4938]  px-4 py-3 mt-8 text-sm rounded-lg cursor-pointer"
               >
                 {loading ? (
                   <span className="w-4 h-4 my-1 rounded-full border-2 border-t-transparent animate-spin" />
@@ -128,12 +129,12 @@ const RemoveBackground = () => {
         <div className="flex-1 gap-4 w-full max-w-full p-5 rounded-2xl flex flex-col bg-slate-700/10 backdrop-blur-sm border border-white/10">
           <div className="flex items-center gap-3">
             <Eraser className="w-5 h-5 text-[#FF4938]" />
-            <h1 className="text-xl font-semibold text-white">Processed Image</h1>
+            <h1 className="text-xl font-semibold ">Processed Image</h1>
           </div>
 
           {!processedImage ? (
             <div className="flex-1 flex justify-center items-center">
-              <div className="text-sm flex flex-col items-center gap-5 text-gray-400">
+              <div className="text-sm flex flex-col items-center gap-5 ">
                 <Eraser className="w-9 h-9" />
                 <p>Upload an image and click "Remove Background" to get started</p>
               </div>
@@ -176,7 +177,7 @@ const RemoveBackground = () => {
                     });
                   }
                 }}
-                className="bg-slate-700/10 border border-white/20 text-white px-4 py-2 rounded-lg text-sm text-center w-fit backdrop-blur-sm"
+                className="bg-slate-700/10 border border-white/20  px-4 py-2 rounded-lg text-sm text-center w-fit backdrop-blur-sm"
               >
                 Download Image
               </button>
@@ -184,15 +185,15 @@ const RemoveBackground = () => {
           )}
         </div>
       </div>
-      <div className="mt-6 p-6 bg-slate-700/10 border border-white/10 rounded-xl text-white">
+      <div className="mt-6 p-6 bg-slate-700/10 border border-white/10 rounded-xl ">
         <h2 className="text-lg font-bold mb-3">Remove Background from Images Instantly</h2>
-        <p className="text-sm text-white/80 mb-2">
+        <p className="text-sm  mb-2">
           Removing backgrounds from images has never been easier. With our AI-powered background remover, you can upload any image and get a clean, transparent background in seconds — perfect for product photos, profile pictures, or creative projects.
         </p>
-        <p className="text-sm text-white/80 mb-2">
+        <p className="text-sm  mb-2">
           Simply upload your image, click “Remove Background,” and our system will automatically detect and remove the background while keeping your subject sharp and clear.
         </p>
-        
+
       </div>
     </div>
 

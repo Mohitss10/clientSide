@@ -1,7 +1,9 @@
 import React from 'react';
+
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { assets } from '../assets/assets';
+
 
 // Reusable fadeIn variant
 const fadeIn = (direction = 'up', delay = 0) => {
@@ -61,7 +63,7 @@ const Hero = () => {
   const highlight = ["ai", "work", "smarter"];
 
   return (
-    <section className="relative text-white min-h-screen flex flex-col justify-center items-center overflow-hidden px-4 sm:px-20 xl:px-32">
+    <section className="relative  min-h-screen flex flex-col justify-center items-center overflow-hidden px-4 sm:px-20 xl:px-32">
 
       {/* 💫 Animated glow background */}
       <div className="absolute inset-0 -z-10">
@@ -105,7 +107,7 @@ const Hero = () => {
       {/* 🧠 Headline animation */}
       <div className="text-center mb-6 z-10">
         <motion.h1
-          className="text-[30px] sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-medium mx-auto leading-tight sm:p-4 tracking-tight flex flex-wrap justify-center gap-x-3"
+          className="text-[30px]  sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-medium mx-auto leading-tight sm:p-4 tracking-tight flex flex-wrap justify-center gap-x-3"
           variants={containerVariant}
           initial="initial"
           animate="animate"
@@ -133,7 +135,7 @@ const Hero = () => {
 
       {/* 📄 Subtext with soft fade-in */}
       <motion.p
-        className="mt-4 max-w-xs sm:max-w-lg 2xl:max-w-xl mx-auto text-gray-300 text-center z-10"
+        className="mt-4 max-w-xs sm:max-w-lg 2xl:max-w-xl mx-auto  text-center z-10"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.8, duration: 0.8, ease: "easeOut" }}
@@ -146,15 +148,16 @@ const Hero = () => {
         className="flex flex-wrap justify-center gap-4 text-sm max-sm:text-xl mt-8 z-10"
         {...fadeIn("up", 2.2)}
       >
-        <button
-          onClick={() => navigate("/ai")}
-          className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-50"
-        >
-          <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-          <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-gray-950 px-8 py-1 text-sm font-medium text-gray-50 backdrop-blur-3xl">
-            Start for Free
-          </span>
-        </button>
+<button
+  onClick={() => navigate("/ai")}
+  className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-50"
+>
+  <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
+  <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-[#e2e8f0] dark:bg-[#1e293b] px-8 py-1 text-sm font-medium text-gray-900 dark:text-gray-50 backdrop-blur-3xl">
+    Start for Free
+  </span>
+</button>
+
       </motion.div>
 
       {/* 👥 Trust indicator */}

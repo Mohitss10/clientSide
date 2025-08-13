@@ -52,7 +52,7 @@ const ReviewResume = () => {
   }, [analysis]);
 
   return (
-    <div className="flex-1 overflow-y-hidden bg-slate-950/10 scrollbar-hide">
+    <div className="flex-1 overflow-y-hidden  scrollbar-hide">
       <div className="flex flex-col lg:flex-row gap-6">
 
         {/* Left Column */}
@@ -67,13 +67,13 @@ const ReviewResume = () => {
           >
             <div className="flex items-center gap-3">
               <Sparkles className="w-6 text-[#00DA83]" />
-              <h1 className="text-xl text-white font-semibold">Resume Review</h1>
+              <h1 className="text-xl  font-semibold">Resume Review</h1>
             </div>
             <div className="lg:hidden">
               {showConfig ? (
-                <ChevronUp className="w-5 h-5 text-white transition-transform duration-300" />
+                <ChevronUp className="w-5 h-5  transition-transform duration-300" />
               ) : (
-                <ChevronDown className="w-5 h-5 text-white transition-transform duration-300" />
+                <ChevronDown className="w-5 h-5  transition-transform duration-300" />
               )}
             </div>
           </div>
@@ -83,21 +83,22 @@ const ReviewResume = () => {
             className={`overflow-hidden transition-all duration-500 ease-in-out lg:max-h-none ${showConfig ? 'max-h-[500px] opacity-100 mt-6' : 'max-h-0 opacity-0 lg:opacity-100 lg:max-h-none'
               } lg:mt-6`}
           >
-            <p className="text-sm font-medium text-white/90">Upload Resume</p>
-            <input
-              onChange={(e) => setFile(e.target.files[0])}
-              type="file"
-              accept="application/pdf"
-              className="w-full p-2 mt-2 outline-none text-sm rounded-md border border-white/10 bg-transparent text-white placeholder:text-white/40"
-              required
-            />
-            <p className="text-xs text-white/50 font-light mt-1">
+            <p className="text-sm font-medium ">Upload Resume</p>
+<input
+  onChange={(e) => setFile(e.target.files[0])}
+  type="file"
+  accept="application/pdf"
+  className="w-full p-2 mt-2 outline-none text-sm rounded-md border border-gray-400 bg-transparent  placeholder:text-gray-400"
+  required
+/>
+
+            <p className="text-xs font-light mt-1">
               Supports PDF resume only.
             </p>
 
             <button
               disabled={loading}
-              className="w-full flex justify-center items-center gap-2 bg-gradient-to-r from-[#00DA83] to-[#009BB3] text-white px-4 py-3 mt-8 text-sm rounded-lg cursor-pointer"
+              className="w-full flex justify-center items-center gap-2 bg-gradient-to-r from-[#00DA83] to-[#009BB3]  px-4 py-3 mt-8 text-sm rounded-lg cursor-pointer"
             >
               {loading ? (
                 <span className="w-4 h-4 my-1 rounded-full border-2 border-t-transparent animate-spin"></span>
@@ -113,33 +114,33 @@ const ReviewResume = () => {
         <div className="flex-1 w-full max-w-full p-5 rounded-2xl flex flex-col bg-slate-700/10 backdrop-blur-sm border border-white/10">
           <div className="flex items-center gap-3 mb-3">
             <FileText className="w-5 h-5 text-[#00DA83]" />
-            <h1 className="text-xl text-white font-semibold">Analysis Result</h1>
+            <h1 className="text-xl  font-semibold">Analysis Result</h1>
           </div>
 
           {!analysis ? (
             <div className="flex-1 flex justify-center items-center">
-              <div className="text-sm flex flex-col items-center gap-5 text-gray-400">
+              <div className="text-sm flex flex-col items-center gap-5 ">
                 <FileText className="w-9 h-9" />
                 <p>Upload a resume and click "Review Resume" to get started</p>
               </div>
             </div>
           ) : (
-            <div className="flex-1 scrollbar-hide overflow-y-auto max-h-[65vh] pr-2 text-sm text-white/80 whitespace-pre-wrap">
+            <div className="flex-1 scrollbar-hide overflow-y-auto max-h-[65vh] pr-2 text-sm  whitespace-pre-wrap">
               <Markdown>{analysis}</Markdown>
             </div>
           )}
         </div>
 
       </div>
-      <div className="mt-6 p-6 bg-slate-700/10 border border-white/10 rounded-xl text-white">
+      <div className="mt-6 p-6 bg-slate-700/10 border border-white/10 rounded-xl ">
         <h2 className="text-lg font-bold mb-3">Get Your Resume Reviewed by AI</h2>
-        <p className="text-sm text-white/80 mb-2">
+        <p className="text-sm  mb-2">
           Our AI-powered resume reviewer analyzes your resume for structure, formatting, keywords, and impact — helping you stand out in competitive job markets.
         </p>
-        <p className="text-sm text-white/80 mb-2">
+        <p className="text-sm  mb-2">
           Simply upload your resume, and our system will highlight strengths, point out weaknesses, and suggest improvements based on industry best practices.
         </p>
-        <p className="text-sm text-white/80">
+        <p className="text-sm ">
           Whether you're a fresher or an experienced professional, you’ll get actionable tips to make your resume shine and increase your chances of landing interviews.
         </p>
       </div>

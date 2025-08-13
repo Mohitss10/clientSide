@@ -1,4 +1,4 @@
-import React, { useState ,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { Scissors, Sparkles, ChevronDown, ChevronUp } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { useAuth } from '@clerk/clerk-react';
@@ -57,7 +57,7 @@ const RemoveObject = () => {
   };
 
   return (
-    <div className="flex-1 overflow-y-auto bg-slate-950/10 scrollbar-hide">
+    <div className="flex-1 overflow-y-auto scrollbar-hide">
       <div className="flex flex-col lg:flex-row gap-6">
 
         {/* Left Column */}
@@ -68,13 +68,13 @@ const RemoveObject = () => {
           <div className="flex items-center justify-between cursor-pointer" onClick={() => setShowLeftCol(!showLeftCol)}>
             <div className="flex items-center gap-3">
               <Sparkles className="w-6 text-[#ff4aea]" />
-              <h1 className="text-xl font-semibold text-white">Object Removal</h1>
+              <h1 className="text-xl font-semibold">Object Removal</h1>
             </div>
             <div className="lg:hidden">
               {showLeftCol ? (
-                <ChevronUp className="w-5 h-5 text-white" />
+                <ChevronUp className="w-5 h-5 " />
               ) : (
-                <ChevronDown className="w-5 h-5 text-white" />
+                <ChevronDown className="w-5 h-5 " />
               )}
             </div>
           </div>
@@ -82,28 +82,29 @@ const RemoveObject = () => {
 
           {showLeftCol && (
             <form onSubmit={onSubmitHandler} className="flex flex-col">
-              <p className="mt-6 text-sm font-medium text-white/90">Upload Image</p>
+              <p className="mt-6 text-sm font-medium ">Upload Image</p>
               <input
                 onChange={(e) => setFile(e.target.files[0])}
                 type="file"
                 accept="image/*"
-                className="w-full p-2 mt-2 outline-none text-sm rounded-md border border-white/10 bg-transparent text-white placeholder:text-white/40"
+                className="w-full p-2 mt-2 outline-none text-sm rounded-md border border-slate-400 bg-transparent  placeholder:text-white/40"
                 required
               />
 
-              <p className="mt-6 text-sm font-medium text-white/90">Describe Object Name to Remove</p>
+              <p className="mt-6 text-sm font-medium ">Describe Object Name to Remove</p>
               <textarea
                 onChange={(e) => setObject(e.target.value)}
                 value={object}
                 rows={4}
-                className="w-full p-2 mt-2 outline-none text-sm rounded-md border border-white/10 bg-transparent text-white placeholder:text-white/40"
+                className="w-full p-2 mt-2 outline-none text-sm rounded-md border border-slate-400 bg-transparent text-gray-300 placeholder:text-gray-400"
                 placeholder="e.g., watch or spoon (only a single object name)"
                 required
               />
 
+
               <button
                 disabled={loading}
-                className="w-full flex justify-center items-center gap-2 bg-gradient-to-r from-[#450065] to-[#eb37d3] text-white px-4 py-3 mt-8 text-sm rounded-lg cursor-pointer"
+                className="w-full flex justify-center items-center gap-2 bg-gradient-to-r from-[#450065] to-[#eb37d3]  px-4 py-3 mt-8 text-sm rounded-lg cursor-pointer"
               >
                 {loading ? (
                   <span className="w-4 h-4 my-1 rounded-full border-2 border-t-transparent animate-spin"></span>
@@ -120,12 +121,12 @@ const RemoveObject = () => {
         <div className="flex-1 gap-4 w-full max-w-full p-5 rounded-2xl flex flex-col bg-slate-700/10 backdrop-blur-sm border border-white/10">
           <div className="flex items-center gap-3">
             <Scissors className="w-5 h-5 text-[#ff4aea]" />
-            <h1 className="text-xl font-semibold text-white">Processed Image</h1>
+            <h1 className="text-xl font-semibold">Processed Image</h1>
           </div>
 
           {!processedImage ? (
             <div className="flex-1 flex justify-center items-center">
-              <div className="text-sm flex flex-col items-center gap-5 text-gray-400">
+              <div className="text-sm flex flex-col items-center gap-5 ">
                 <Scissors className="w-9 h-9" />
                 <p>Upload an image and click "Remove Object" to get started</p>
               </div>
@@ -179,7 +180,7 @@ const RemoveObject = () => {
                       console.error("Download error:", err);
                     }
                   }}
-                  className="bg-slate-700/10 border border-white/20 text-white px-4 py-2 rounded-lg text-sm text-center w-fit backdrop-blur-sm"
+                  className="bg-slate-700/10 border border-white/20  px-4 py-2 rounded-lg text-sm text-center w-fit backdrop-blur-sm"
                 >
                   Download Image
                 </button>
@@ -188,15 +189,15 @@ const RemoveObject = () => {
           )}
         </div>
       </div>
-      <div className="mt-6 p-6 bg-slate-700/10 border border-white/10 rounded-xl text-white">
+      <div className="mt-6 p-6 bg-slate-700/10 border border-white/10 rounded-xl ">
         <h2 className="text-lg font-bold mb-3">Remove Objects from Images Effortlessly</h2>
-        <p className="text-sm text-white/80 mb-2">
+        <p className="text-sm  mb-2">
           Our AI-powered object remover lets you erase unwanted objects from your photos quickly and seamlessly, without leaving any traces.
         </p>
-        <p className="text-sm text-white/80 mb-2">
+        <p className="text-sm  mb-2">
           Simply upload your image, highlight the object you want to remove, and our system will intelligently blend the surrounding background for a natural look.
         </p>
-        <p className="text-sm text-white/80">
+        <p className="text-sm ">
           Perfect for fixing product shots, travel photos, or personal images — no advanced editing skills required.
         </p>
       </div>

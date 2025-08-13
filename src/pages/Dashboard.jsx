@@ -52,7 +52,7 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className=" min-h-[60vh] border-white/10 lg:min-h-[85vh] sm:mx-auto overflow-y-auto scrollbar-hide border p-4 rounded-xl">
+    <div className=" min-h-[70vh] sm:h-[82.5vh] border-white/10 lg:min-h-[86vh] sm:mx-auto overflow-y-auto scrollbar-hide border p-4 rounded-xl">
       {/* Card Section */}
       {/* <div className="flex gap-4 overflow-x-auto sm:flex-wrap scrollbar-hide justify-center">
         {/* Total creation card */}
@@ -67,22 +67,22 @@ const Dashboard = () => {
         </div> */}
 
         {/* Active plan card */}
-        <div className=" flex-shrink-0 flex justify-between items-center w-full lg:w-full p-4 sm:p-6 rounded-xl border border-white/10 backdrop-blur-lg shadow-md bg-slate-800/30">
+        <div className=" flex-shrink-0 flex justify-between items-center w-full lg:w-full p-2 sm:p-4 rounded-xl border border-white/10 backdrop-blur-lg shadow-md bg-slate-800/10">
 
-          <div className="text-slate-100">
+          <div >
             <p className="text-sm opacity-80">Active Plan</p>
             <h2 className="text-xl font-semibold">
               {plan === 'premium' ? 'Premium' : 'Free'}
             </h2>
           </div>
           <div className="w-10 h-10 rounded-lg flex justify-center items-center shadow-md">
-            <Gem className="w-5 text-white" />
+            <Gem className="w-5" />
           </div>
         </div>
-            <h1 className="text-2xl text-white pl-3 font-semibold mt-2">Creations</h1>
+            <h1 className="text-2xl pl-3  mt-3">From your words to a work of art⚡</h1>
 
       
-<div className="h-[43vh] sm:h-[63vh] mt-5 scrollable-container overflow-y-auto">
+<div className="h-[43vh] sm:h-[58vh] mt-5 scrollable-container overflow-y-auto">
   <Community />
 </div>
 
@@ -96,7 +96,7 @@ const Dashboard = () => {
       container.scrollBy({ top: window.innerHeight * 0.5, behavior: 'smooth' });
     }
   }}
-  className="mt-6 px-6 py-3 rounded-xl w-full text-slate-300 bg-slate-800/30 font-medium shadow-lg hover:shadow-xl transition sm:hidden flex flex-col items-center"
+  className="mt-6 px-6 py-3 rounded-xl w-full  bg-slate-800/30 font-medium shadow-lg hover:shadow-xl transition sm:hidden flex flex-col items-center"
   animate={{
     y: [0, -8, 0, 8, 0],
   }}

@@ -68,9 +68,9 @@ const AiTools = () => {
 
   const handleToolClick = (tool) => {
     if (!user) {
-      toast.error(" Please sign in first to use this awesome AI tool!🚀", {
+      toast.error(" Please sign in first to use this awesome AI tool! 🚀", {
         style: {
-          text:"center",
+          text: "center",
           background: "#334155",
           color: "#fff",
           borderRadius: "10px",
@@ -95,17 +95,17 @@ const AiTools = () => {
           <h2 className="text-4xl sm:text-5xl font-medium bg-gradient-to-r from-gray-300 via-gray-500 to-gray-800 bg-clip-text text-transparent">
             Explore Tools
           </h2>
-          <p className="text-gray-300 mt-4 text-base sm:text-lg max-w-2xl mx-auto">
+          <p className=" mt-4 text-base sm:text-lg max-w-2xl mx-auto">
             Discover powerful AI tools in a responsive, modern layout designed to boost your creativity and workflow.
           </p>
         </header>
 
-        <div className="mt-12 block space-y-4 sm:grid sm:gap-4 sm:space-y-1 sm:grid-cols-2 lg:grid-cols-4 auto-rows-[200px] md:auto-rows-[250px]">
+        <div className="mt-12 sm:mx-10 block space-y-4 sm:grid sm:gap-3 sm:space-y-1 sm:grid-cols-2 lg:grid-cols-4 auto-rows-[200px] md:auto-rows-[250px]">
           {aiToolsData.map((tool, index) => (
             <div
               key={index}
               onClick={() => handleToolClick(tool)}
-              className={`relative overflow-hidden p-6 rounded-2xl shadow-lg transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl cursor-pointer border border-white/10 ${tool.colSpan} ${tool.rowSpan}`}
+              className={`relative overflow-hidden p-6 rounded-2xl shadow-lg transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl cursor-pointer ${tool.colSpan} ${tool.rowSpan}`}
               style={{
                 background:
                   tool.title === "AIMatrix"
@@ -117,25 +117,30 @@ const AiTools = () => {
 
               <div className="relative z-10 flex flex-col justify-between h-full">
                 {tool.title !== "AIMatrix" && (
-                  <tool.Icon className="text-purple-300 w-10 h-10 mb-4" />
+                  <tool.Icon className=" w-10 h-10 mb-4" />
                 )}
 
                 <div>
                   <h3
                     className={`font-bold ${tool.title === "AIMatrix"
-                        ? "bg-gradient-to-r from-[#112d4e] via-[#203f64] to-[#112d4e] bg-clip-text text-transparent text-6xl sm:text-6xl md:text-7xl lg:text-8xl"
-                        : "text-xl text-slate-300"
+                      ? "bg-gradient-to-r from-[#112d4e] via-[#203f64] to-[#112d4e] bg-clip-text text-transparent text-6xl sm:text-6xl md:text-7xl lg:text-9xl"
+                      : "text-xl "
                       }`}
                   >
                     {tool.title}
                   </h3>
 
                   <p
-                    className={`mt-2 text-slate-400 ${tool.title === "AIMatrix" ? "text-lg sm:text-xl" : "text-sm"
+                    className={`mt-2  ${tool.title === "AIMatrix"
+                        ? "text-sm sm:text-sm max-[1023px]:text-xs" // shrink when < 1024px
+                        : "text-sm max-[1023px]:text-xs" // shrink when < 1024px
                       }`}
                   >
                     {tool.description}
                   </p>
+
+
+
                 </div>
               </div>
             </div>

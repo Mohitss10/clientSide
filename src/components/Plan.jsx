@@ -8,7 +8,7 @@ const Plan = () => {
         <h2 className="bg-gradient-to-r from-gray-300 via-gray-500 to-gray-800 bg-clip-text text-transparent text-4xl sm:text-[42px] font-medium">
           Choose Your Plan
         </h2>
-        <p className="mt-4 text-gray-300 text-base sm:text-lg">
+        <p className="mt-4 text-base sm:text-lg">
           Start for free and scale as you grow. Find the perfect plan for your content creation needs.
         </p>
       </div>

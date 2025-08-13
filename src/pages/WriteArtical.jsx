@@ -70,13 +70,13 @@ const onSubmitHandler = async (e) => {
           >
             <div className="flex items-center gap-3">
               <Sparkles className="w-6 text-[#4A7AFF]" />
-              <h1 className="text-xl text-white font-semibold">Article Configuration</h1>
+              <h1 className="text-xl  font-semibold">Article Configuration</h1>
             </div>
             <div
               className="lg:hidden transition-transform duration-300"
               style={{ transform: `rotate(${showConfig ? 180 : 0}deg)` }}
             >
-              <ChevronDown className="w-5 h-5 text-white" />
+              <ChevronDown className="w-5 h-5" />
             </div>
           </div>
 
@@ -88,36 +88,38 @@ const onSubmitHandler = async (e) => {
               opacity: showConfig ? 1 : 0,
             }}
           >
-            <p className="mt-6 text-sm font-medium text-white/90">Article Topic</p>
-            <input
-              onChange={(e) => setInput(e.target.value)}
-              value={input}
-              type="text"
-              className="w-full text-white p-2 mt-2 outline-none text-sm rounded-md border border-white/10 bg-transparent placeholder:text-white/40"
-              placeholder="The future of artificial intelligence is..."
-              required
-            />
+            <p className="mt-6 text-sm font-medium">Article Topic</p>
+<input
+  onChange={(e) => setInput(e.target.value)}
+  value={input}
+  type="text"
+  className="w-full p-2 mt-2 outline-none text-sm rounded-md border border-slate-400 bg-transparent placeholder:text-slate-500 dark:placeholder:text-slate-400"
+  placeholder="The future of artificial intelligence is..."
+  required
+/>
 
-            <p className="m-4 text-sm font-medium text-white/90">Article Length</p>
-            <div className="mt-3 flex gap-3 flex-wrap">
+
+            <p className="m-4 text-sm font-medium ">Article Length</p>
+            <div className="mt-3 ml-2 flex gap-3 flex-wrap">
               {articalLength.map((item, index) => (
-                <span
-                  onClick={() => setSelectedLength(item)}
-                  className={`text-xs px-4 py-1 border rounded-full cursor-pointer transition ${
-                    selectedLength.text === item.text
-                      ? 'bg-[#1a2b4a] text-blue-400 border-blue-500'
-                      : 'text-white/70 border-white/10 hover:bg-white/5'
-                  }`}
-                  key={index}
-                >
-                  {item.text}
-                </span>
+<span
+  onClick={() => setSelectedLength(item)}
+  className={`text-xs px-4 py-1 border rounded-full cursor-pointer transition-all duration-300 ease-in-out
+    ${selectedLength.text === item.text
+      ? 'border-blue-500 text-blue-400 shadow-md shadow-blue-500/30 scale-105'
+      : 'border-gray-400/40 hover:shadow-md hover:shadow-gray-500/30 hover:scale-105'
+    }`}
+  key={index}
+>
+  {item.text}
+</span>
+
               ))}
             </div>
 
             <button
               disabled={loading}
-              className="w-full flex justify-center items-center gap-2 bg-gradient-to-r from-[#226BFF] to-[#65ADFF] text-white px-4 py-3 mt-8 text-sm rounded-lg cursor-pointer"
+              className="w-full flex justify-center items-center gap-2 bg-gradient-to-r from-[#226BFF] to-[#65ADFF]  px-4 py-3 mt-8 text-sm rounded-lg cursor-pointer"
             >
               {loading ? (
                 <span className="w-4 h-4 my-1 rounded-full border-2 border-t-transparent animate-spin"></span>
@@ -133,18 +135,18 @@ const onSubmitHandler = async (e) => {
         <div className="flex-1 gap-4 w-full max-w-full p-5 rounded-2xl flex flex-col bg-slate-700/10 backdrop-blur-sm border border-white/10">
           <div className="flex items-center gap-3">
             <Edit className="w-5 h-5 text-[#4A7AFF]" />
-            <h1 className="text-xl text-white font-semibold">Generated article</h1>
+            <h1 className="text-xl font-semibold">Generated article</h1>
           </div>
 
           {!content ? (
             <div className="flex-1 flex justify-center items-center">
-              <div className="text-sm flex flex-col items-center gap-5 text-gray-400">
+              <div className="text-sm flex flex-col items-center gap-5">
                 <Edit className="w-9 h-9" />
                 <p>Enter a topic and click "Generate article" to get started</p>
               </div>
             </div>
           ) : (
-            <div className="scrollbar-hide mt-3 h-full overflow-y-scroll text-sm text-white/80 markdown-body">
+            <div className="scrollbar-hide mt-3 h-full overflow-y-scroll text-sm  markdown-body">
               <div className="reset-tw">
                 <Markdown>{content}</Markdown>
               </div>
@@ -152,15 +154,15 @@ const onSubmitHandler = async (e) => {
           )}
         </div>
       </div>
-      <div className="mt-6 p-6 bg-slate-700/10 border border-white/10 rounded-xl text-white">
+      <div className="mt-6 p-6 bg-slate-700/10 border border-white/10 rounded-xl ">
         <h2 className="text-lg font-bold mb-3">Write High-Quality Articles with AI</h2>
-        <p className="text-sm text-white/80 mb-2">
+        <p className="text-sm  mb-2">
           Our AI article writer helps you create engaging, well-structured, and SEO-friendly content in just minutes — perfect for blogs, websites, and social media.
         </p>
-        <p className="text-sm text-white/80 mb-2">
+        <p className="text-sm  mb-2">
           Simply enter your topic or keywords, and our system will generate a complete article with relevant headings, clear formatting, and a natural flow.
         </p>
-        <p className="text-sm text-white/80">
+        <p className="text-sm">
           Save time, boost productivity, and focus on your ideas while AI handles the heavy lifting of writing.
         </p>
       </div>

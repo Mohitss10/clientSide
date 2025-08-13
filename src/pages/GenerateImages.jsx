@@ -66,13 +66,13 @@ const GenerateImages = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <Sparkles className="w-6 text-[#00AD25]" />
-              <h1 className="text-xl font-semibold text-white">AI Image Generator</h1>
+              <h1 className="text-xl font-semibold ">AI Image Generator</h1>
             </div>
             {/* Toggle Arrow for Mobile */}
             <svg
               onClick={() => setShowLeftCol(!showLeftCol)}
               xmlns="http://www.w3.org/2000/svg"
-              className={`w-4 h-4 text-white cursor-pointer transition-transform duration-300 lg:hidden ${showLeftCol ? 'rotate-180' : ''}`}
+              className={`w-4 h-4  cursor-pointer transition-transform duration-300 lg:hidden ${showLeftCol ? 'rotate-180' : ''}`}
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -81,29 +81,33 @@ const GenerateImages = () => {
             </svg>
           </div>
 
-          <p className="mt-6 text-sm font-medium text-white/90">Describe Your Image</p>
+          <p className="mt-6 text-sm font-medium ">Describe Your Image</p>
           <textarea
             onChange={(e) => setInput(e.target.value)}
             value={input}
             rows={4}
-            className="w-full p-2 mt-2 text-white outline-none text-sm rounded-md border border-white/10 bg-transparent placeholder:text-white/40"
+            className="w-full p-2 mt-2 outline-none text-sm rounded-md border border-slate-400 bg-transparent placeholder:text-gray-400 dark:placeholder:text-gray-500 placeholder:text-[13px] placeholder:italic"
             placeholder="Describe what you want to see in the image..."
             required
           />
 
-          <p className="mt-6 text-sm font-medium  text-white/90">Style</p>
+
+
+          <p className="mt-6 text-sm font-medium  ">Style</p>
           <div className="mt-3 flex gap-2 flex-wrap">
             {imageStyle.map((item) => (
               <span
                 onClick={() => setSelectedStyle(item)}
-                className={`text-[15px] sm:text-xs px-3 py-0.5 sm:px-4 sm:py-1 border rounded-full cursor-pointer transition ${selectedStyle === item
-                    ? 'bg-[#0c1c13] text-green-400 border-green-500'
-                    : 'text-white/70 border-white/10 hover:bg-white/5'
+                className={`text-[15px] sm:text-xs px-3 py-0.5 sm:px-4 sm:py-1 border rounded-full cursor-pointer transition-all duration-300 ease-in-out
+    ${selectedStyle === item
+                    ? 'border-green-500 shadow-md shadow-green-500/30 scale-105'
+                    : 'border-gray-400/40 hover:shadow-md hover:shadow-gray-500/30 hover:scale-105'
                   }`}
                 key={item}
               >
                 {item}
               </span>
+
             ))}
           </div>
 
@@ -120,12 +124,12 @@ const GenerateImages = () => {
               <div className="w-9 h-5 bg-slate-700/10 rounded-full peer-checked:bg-green-500 transition"></div>
               <span className="absolute left-1 top-1 w-3 h-3 bg-white rounded-full transition peer-checked:translate-x-4"></span>
             </label>
-            <p className="text-sm text-white/90">Make this image Public</p>
+            <p className="text-sm ">Make this image Public</p>
           </div>
 
           <button
             disabled={loading}
-            className="w-full flex justify-center items-center gap-2 bg-gradient-to-r from-[#00AD25] to-[#04FF50] text-white px-4 py-3 mt-4 text-sm rounded-lg cursor-pointer"
+            className="w-full flex justify-center items-center gap-2 bg-gradient-to-r from-[#00AD25] to-[#04FF50]  px-4 py-3 mt-4 text-sm rounded-lg cursor-pointer"
           >
             {loading ? (
               <span className="w-4 h-4 my-1 rounded-full border-2 border-t-transparent animate-spin"></span>
@@ -140,12 +144,12 @@ const GenerateImages = () => {
         <div className="flex-1 gap-4 w-full max-w-full p-5 rounded-2xl flex flex-col bg-slate-700/10 backdrop-blur-sm border border-white/10">
           <div className="flex items-center gap-3">
             <Image className="w-5 h-5 text-[#00AD25]" />
-            <h1 className="text-xl font-semibold text-white">Generated Image</h1>
+            <h1 className="text-xl font-semibold ">Generated Image</h1>
           </div>
 
           {!content ? (
             <div className="flex-1 flex justify-center items-center">
-              <div className="text-sm flex flex-col items-center gap-5 text-gray-400">
+              <div className="text-sm flex flex-col items-center gap-5 ">
                 <Image className="w-9 h-9" />
                 <p>Enter a description and click "Generate Image" to get started</p>
               </div>
@@ -198,7 +202,7 @@ const GenerateImages = () => {
                     console.error("Download error:", err);
                   }
                 }}
-                className="bg-slate-700/10 border border-white/20 text-white px-4 py-2 rounded-lg text-sm text-center w-fit backdrop-blur-sm"
+                className="bg-slate-700/10 border border-white/20 px-4 py-2 rounded-lg text-sm text-center w-fit backdrop-blur-sm"
               >
                 Download Image
               </button>
@@ -207,9 +211,9 @@ const GenerateImages = () => {
         </div>
 
       </div>
-      <div className="mt-6 p-6 bg-slate-700/10 border border-white/10 rounded-xl text-white">
+      <div className="mt-6 p-6 bg-slate-700/10 border border-white/10 rounded-xl ">
         <h2 className="text-lg font-bold mb-3">Generate Stunning Images with AI</h2>
-        <p className="text-sm text-white/80 mb-2">
+        <p className="text-sm  mb-2">
           Create high-quality, unique images instantly using our AI image generator — perfect for art, design projects, social media, and marketing.
         </p>
 

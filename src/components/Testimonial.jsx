@@ -118,7 +118,7 @@ const Testimonial = () => {
         <div className='px-4 sm:px-20 xl:px-32 py-24 relative overflow-hidden'>
             <div className='text-center'>
                 <h2 className='bg-gradient-to-r from-gray-300 via-gray-500 to-gray-800 bg-clip-text text-transparent text-4xl sm:text-[42px] font-medium'>Our Users Speak</h2>
-                <p className='text-gray-300 max-w-lg mx-auto'>
+                <p className='max-w-lg mx-auto'>
                     Discover how creators and professionals are achieving more with our tools.
                 </p>
             </div>
@@ -145,7 +145,7 @@ const Testimonial = () => {
                                             />
                                         ))}
                                 </div>
-                                <p className='text-white text-sm my-4 line-clamp-5'>
+                                <p className=' text-sm my-4 line-clamp-5'>
                                     "{testimonial.content}"
                                 </p>
                                 <hr className='mb-4 border-gray-300' />
@@ -155,9 +155,9 @@ const Testimonial = () => {
                                         className='w-12 h-12 object-cover rounded-full'
                                         alt={testimonial.name}
                                     />
-                                    <div className='text-sm text-white'>
+                                    <div className='text-sm '>
                                         <h3 className='font-medium'>{testimonial.name}</h3>
-                                        <p className='text-xs text-white'>{testimonial.title}</p>
+                                        <p className='text-xs'>{testimonial.title}</p>
                                     </div>
                                 </div>
                             </div>

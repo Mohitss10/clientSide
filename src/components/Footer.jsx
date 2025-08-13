@@ -13,30 +13,30 @@ const Footer = () => {
             </div>
 
             <div className="px-4 py-8 sm:px-6 lg:col-span-3 lg:px-8 justify-end">
-                <p className=" text-sm text-gray-400 mt-10">
+                <p className=" text-sm  mt-10">
                     <span className="font-bold text-5xl text-pink-400">Built with brainwaves & caffeine</span>
                     <span> — </span>
-                    <span className=" text-3xl text-slate-300"> AIMatrix has your back!</span>
+                    <span className=" text-3xl "> AIMatrix has your back!</span>
                 </p>
 
 
-                <div className="mt-2 border-t border-gray-100 py-3">
+                <div className="mt-2 border-t border-gray-white py-3">
                     <div className="sm:flex">
                         <ul className="flex flex-wrap gap-4 text-xs">
                             <li>
-                                <a href="#" className="text-gray-300 transition hover:opacity-75"> Terms & Conditions </a>
+                                <a href="#" className=" transition hover:opacity-75"> Terms & Conditions </a>
                             </li>
 
                             <li>
-                                <a href="#" className="text-gray-300 transition hover:opacity-75"> Privacy Policy </a>
+                                <a href="#" className=" transition hover:opacity-75"> Privacy Policy </a>
                             </li>
 
                             <li>
-                                <a href="#" className="text-gray-300 transition hover:opacity-75"> Cookies </a>
+                                <a href="#" className=" transition hover:opacity-75"> Cookies </a>
                             </li>
                         </ul>
 
-                        <p className="mt-8 text-xs text-gray-300 sm:mt-0">
+                        <p className="mt-8 text-xs  sm:mt-0">
                             &copy; 2022. Company Name. All rights reserved.
                         </p>
                     </div>
