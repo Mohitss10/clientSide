@@ -22,7 +22,7 @@ export default function ThemeToggle() {
         <div
           onClick={toggleTheme}
           className={`relative w-14 h-8 rounded-full cursor-pointer transition-colors duration-500 ${
-            theme === "dark" ? "bg-gray-700" : "bg-blue-300"
+            theme === "dark" ? "bg-gray-700" : "bg-slate-300"
           }`}
         >
           <div
@@ -39,7 +39,7 @@ export default function ThemeToggle() {
 <div
   onClick={toggleTheme}
   className={`hidden sm:flex items-center justify-center w-14 h-8 rounded-full cursor-pointer transition-colors duration-500 ${
-    theme === "dark" ? "bg-gray-700" : "bg-blue-300"
+    theme === "dark" ? "bg-gray-700" : "bg-slate-300"
   }`}
 >
   <div
