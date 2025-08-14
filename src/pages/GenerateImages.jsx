@@ -98,7 +98,7 @@ const GenerateImages = () => {
             {imageStyle.map((item) => (
               <span
                 onClick={() => setSelectedStyle(item)}
-                className={`text-xs sm:text-xs px-3 py-0.5 sm:px-4 sm:py-1 border rounded-full cursor-pointer transition-all duration-300 ease-in-out
+                className={`text-xs sm:text-xs px-4 py-1 sm:px-4 sm:py-1 border rounded-full cursor-pointer transition-all duration-300 ease-in-out
     ${selectedStyle === item
                     ? 'border-green-500 shadow-md shadow-green-500/30 scale-105'
                     : 'border-gray-400/40 hover:shadow-md hover:shadow-gray-500/30 hover:scale-105'

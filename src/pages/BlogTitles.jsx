@@ -164,18 +164,18 @@ const BlogTitles = () => {
         </div>
       </div>
 
-<div className="mt-6 p-6 bg-slate-700/10 border border-white/10 rounded-xl hidden sm:block">
-  <h2 className="text-lg font-bold mb-3">Generate Catchy Blog Titles Instantly</h2>
-  <p className="text-sm mb-2">
-    Struggling to come up with engaging blog titles? Our AI-powered tool creates attention-grabbing, SEO-friendly titles in seconds.
-  </p>
-  <p className="text-sm mb-2">
-    Simply enter your topic or keywords, and our system will suggest multiple title ideas to help your content stand out.
-  </p>
-  <p className="text-sm">
-    Perfect for bloggers, marketers, and content creators looking to boost clicks and attract readers effortlessly.
-  </p>
-</div>
+      <div className="mt-6 p-6 bg-slate-700/10 border border-white/10 rounded-xl hidden sm:block">
+        <h2 className="text-lg font-bold mb-3">Generate Catchy Blog Titles Instantly</h2>
+        <p className="text-sm mb-2">
+          Struggling to come up with engaging blog titles? Our AI-powered tool creates attention-grabbing, SEO-friendly titles in seconds.
+        </p>
+        <p className="text-sm mb-2">
+          Simply enter your topic or keywords, and our system will suggest multiple title ideas to help your content stand out.
+        </p>
+        <p className="text-sm">
+          Perfect for bloggers, marketers, and content creators looking to boost clicks and attract readers effortlessly.
+        </p>
+      </div>
 
     </div>
   );
