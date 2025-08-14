@@ -155,34 +155,36 @@ const Hero = () => {
         className="flex flex-wrap justify-center gap-4 text-sm max-sm:text-xl mt-8 z-10"
         {...fadeIn("up", 2.2)}
       >
-        <div>
-          <button
-            onClick={() => navigate("/ai")}
-            className="relative inline-flex h-12 w-auto overflow-hidden rounded-full p-[1px]"
-          >
-            <span className="absolute inset-[-1000%]" />
-            <span className="inline-flex h-full w-full cursor-pointer items-center gap-2 justify-center rounded-full bg-primary text-white px-8 text-[15px] backdrop-blur-3xl">
-              Start for Free
-              <ArrowRight className="h-4 w-4 pt-1" strokeWidth={2} />
-            </span>
+<div className="flex gap-4">
+  {/* Start for Free Button */}
+  <div>
+    <button
+      onClick={() => navigate("/ai")}
+      className="relative inline-flex h-12 w-auto overflow-hidden rounded-full p-[1px] transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-xl"
+    >
+      <span className="absolute inset-[-1000%]" />
+      <span className="inline-flex h-full w-full cursor-pointer items-center gap-2 justify-center rounded-full bg-primary text-white px-8 text-[15px] backdrop-blur-3xl transition-all duration-300 ease-in-out">
+        Start for Free
+        <ArrowRight className="h-3 w-3" strokeWidth={2} />
+      </span>
+    </button>
+  </div>
 
-          </button>
-          
-        </div>
+  {/* Create Account Button */}
+  <div>
+    {user ? (
+      ''
+    ) : (
+      <button
+        onClick={openSignIn}
+        className="inline-flex h-12 items-center justify-center rounded-full bg-primary text-white px-8 text-[15px] gap-2 transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-primary/90 hover:shadow-lg"
+      >
+        Create Account
+      </button>
+    )}
+  </div>
+</div>
 
-        <div>
-          {user ? (
-            ''
-          ) : (
-            <button
-              onClick={openSignIn}
-              className="inline-flex h-12 items-center justify-center rounded-full bg-primary text-white px-8 text-[15px] gap-2"
-            >
-              Create Account
-
-            </button>
-          )}
-        </div>
 
 
       </motion.div>

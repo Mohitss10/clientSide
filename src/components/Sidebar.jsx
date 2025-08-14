@@ -4,6 +4,7 @@ import { House, SquarePen, Eraser, FileText, Hash, Image, Scissors, Users, LogOu
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
+import { motion } from 'framer-motion';
 
 const navItems = [
   { to: '/ai', label: 'Dashboard', Icon: House },
@@ -21,23 +22,24 @@ const Sidebar = ({ sidebar, setSidebar }) => {
   const { signOut, openUserProfile } = useClerk();
 
   return (
-    <div
+    <motion.div
+      initial={{ y: 50, opacity: 0 }} // start slightly down and invisible
+      animate={{ y: sidebar ? 0 : 50, opacity: sidebar ? 1 : 0 }} // move up when open
+      transition={{ type: 'spring', stiffness: 120, damping: 20, duration: 0.4 }}
       className={`
-    fixed top-14 left-0 z-50
-    h-[calc(100vh-55px)] sm:h-[86.9vh] text-slate-5500
-    w-60 sm:w-60 lg:bg-transparent lg:backdrop-blur-none lg:border-none
-    p-4 sm:p-6 transform ${sidebar ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'} 
-    transition-all duration-100 ease-[cubic-bezier(.4,0,.2,1)]
-    sm:translate-x-0 sm:opacity-100 sm:static sm:block  flex justify-center
-  `}
+        fixed top-14 left-0 z-50
+        h-[calc(100vh-55px)] sm:h-[86.9vh] w-60
+        text-slate-5500 px-4 sm:p-6
+        transform sm:translate-x-0 sm:opacity-100 sm:static sm:block flex justify-center
+      `}
     >
-
-      <div className="h-full flex flex-col">
+      {/* Scrollable container */}
+      <div className="h-full flex flex-col overflow-y-auto">
         <div className="py-6">
           <img src={user.imageUrl} alt="User" className="w-14 rounded-full mx-auto" />
-          <h1 className="mt-2 text-center  text-sm">{user.fullName}</h1>
+          <h1 className="mt-2 text-center text-sm">{user.fullName}</h1>
 
-          <div className="mt-1 pt-6 border-t border-white/10 space-y-2 text-sm ">
+          <div className="mt-1 pt-6 border-t border-white/10 space-y-2 text-sm">
             {navItems.map(({ to, label, Icon }) => (
               <NavLink
                 key={to}
@@ -45,7 +47,8 @@ const Sidebar = ({ sidebar, setSidebar }) => {
                 end={to === '/ai'}
                 onClick={() => setSidebar(false)}
                 className={({ isActive }) =>
-                  `flex items-center gap-3 px-4 py-2 rounded-full hover:bg-white/10 transition ${isActive ? 'bg-white/10 font-medium' : ''
+                  `flex items-center gap-3 px-4 py-2 rounded-full hover:bg-white/10 transition ${
+                    isActive ? 'bg-white/10 font-medium' : ''
                   }`
                 }
               >
@@ -60,28 +63,25 @@ const Sidebar = ({ sidebar, setSidebar }) => {
           <div onClick={openUserProfile} className="flex items-center gap-2 cursor-pointer">
             <img src={user.imageUrl} className="w-6 h-6 rounded-full" alt="user" />
             <div>
-              <h1 className="text-sm ">{user.fullName}</h1>
-              <p className="text-xs ">
-                <Protect plan="premium" fallback="Free">Premium </Protect>
-                Plan
+              <h1 className="text-sm">{user.fullName}</h1>
+              <p className="text-xs">
+                <Protect plan="premium" fallback="Free">Premium</Protect> Plan
               </p>
             </div>
           </div>
           <LogOut
             onClick={() => signOut()}
-            className="w-5 h-5  hover:text-white cursor-pointer"
+            className="w-5 h-5 hover:text-white cursor-pointer"
           />
         </div>
-           <span className="sm:hidden ml-2 text-[19px] font-medium text-gray-700 dark:text-gray-200">
-  Change Theme
-</span>
 
-        <div className="block sm:hidden">
+
+
+        <div className="block sm:hidden mt-2">
           <ThemeToggle />
         </div>
       </div>
-
-    </div>
+    </motion.div>
   );
 };
 

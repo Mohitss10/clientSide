@@ -38,18 +38,20 @@ export default function ThemeToggle() {
 {/* Desktop: only toggle */}
 <div
   onClick={toggleTheme}
-  className={`hidden sm:flex items-center justify-center w-15 h-8.5 rounded-full cursor-pointer transition-colors duration-500 ${
+  className={`hidden sm:flex items-center justify-center w-14 h-7 rounded-full cursor-pointer transition-colors duration-500 ${
     theme === "dark" ? "bg-gray-700" : "bg-blue-300"
   }`}
 >
   <div
-    className={`w-7 h-7 rounded-full flex items-center justify-center shadow-md transform transition-transform duration-500 ${
+    className={`w-6 h-6 rounded-full flex items-center justify-center shadow-md transform transition-transform duration-500 ${
       theme === "dark" ? "translate-x-3 bg-gray-600" : "-translate-x-3 bg-yellow-300"
     }`}
   >
-    {theme === "dark" ? <Moon size={14} /> : <Sun size={14} />}
+    {theme === "dark" ? <Moon size={13} /> : <Sun size={13} />}
   </div>
 </div>
+
+
 
 
     </>

@@ -105,14 +105,15 @@ const AiTools = () => {
             <div
               key={index}
               onClick={() => handleToolClick(tool)}
-              className={`relative overflow-hidden p-6 rounded-2xl shadow-lg transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl cursor-pointer ${tool.colSpan} ${tool.rowSpan}`}
+              className={`relative overflow-hidden p-6 rounded-2xl shadow-lg transition-all duration-300 cursor-pointer ${tool.colSpan} ${tool.rowSpan} ${tool.title !== "AIMatrix" ? "hover:scale-[1.03] hover:shadow-2xl" : ""}`}
               style={{
                 background:
                   tool.title === "AIMatrix"
-                    ? "linear-gradient(135deg, #0a192f, #112d4e, #1b3b6f)"
+                    ? ""
                     : "linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))",
               }}
             >
+
               <div className="absolute inset-0 bg-slate-00/50 backdrop-blur-3xl rounded-2xl" />
 
               <div className="relative z-10 flex flex-col justify-between h-full">
@@ -123,7 +124,7 @@ const AiTools = () => {
                 <div>
                   <h3
                     className={`font-bold ${tool.title === "AIMatrix"
-                      ? "bg-gradient-to-r from-[#112d4e] via-[#203f64] to-[#112d4e] bg-clip-text text-transparent text-6xl sm:text-6xl md:text-7xl lg:text-9xl"
+                      ? "bg-gradient-to-r from-[#204876] via-[#2b5c98] to-[#2f70bb] bg-clip-text text-transparent text-6xl sm:text-6xl md:text-7xl lg:text-9xl"
                       : "text-xl "
                       }`}
                   >
@@ -132,8 +133,8 @@ const AiTools = () => {
 
                   <p
                     className={`mt-2  ${tool.title === "AIMatrix"
-                        ? "text-sm sm:text-sm max-[1023px]:text-xs" // shrink when < 1024px
-                        : "text-sm max-[1023px]:text-xs" // shrink when < 1024px
+                      ? "text-sm sm:text-sm max-[1023px]:text-xs" // shrink when < 1024px
+                      : "text-sm max-[1023px]:text-xs" // shrink when < 1024px
                       }`}
                   >
                     {tool.description}
