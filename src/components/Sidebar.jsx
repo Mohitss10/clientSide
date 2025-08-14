@@ -23,13 +23,12 @@ const Sidebar = ({ sidebar, setSidebar }) => {
 
   return (
     <motion.div
-      initial={{ y: 50, opacity: 0 }} // start slightly down and invisible
-      animate={{ y: sidebar ? 0 : 50, opacity: sidebar ? 1 : 0 }} // move up when open
+       
       transition={{ type: 'spring', stiffness: 120, damping: 20, duration: 0.4 }}
       className={`
         fixed top-14 left-0 z-50
         h-[calc(100vh-55px)] sm:h-[86.9vh] w-60
-        text-slate-5500 px-4 sm:p-6
+        text-slate-550 px-4 sm:p-6
         transform sm:translate-x-0 sm:opacity-100 sm:static sm:block flex justify-center
       `}
     >

@@ -84,13 +84,13 @@ const ReviewResume = () => {
               } lg:mt-6`}
           >
             <p className="text-sm font-medium ">Upload Resume</p>
-<input
-  onChange={(e) => setFile(e.target.files[0])}
-  type="file"
-  accept="application/pdf"
-  className="w-full p-2 mt-2 outline-none text-sm rounded-md border border-gray-400 bg-transparent  placeholder:text-gray-400"
-  required
-/>
+            <input
+              onChange={(e) => setFile(e.target.files[0])}
+              type="file"
+              accept="application/pdf"
+              className="w-full p-2 mt-2 outline-none text-sm rounded-md border border-gray-400 bg-transparent  placeholder:text-gray-400"
+              required
+            />
 
             <p className="text-xs font-light mt-1">
               Supports PDF resume only.
@@ -132,18 +132,19 @@ const ReviewResume = () => {
         </div>
 
       </div>
-      <div className="mt-6 p-6 bg-slate-700/10 border border-white/10 rounded-xl ">
+      <div className="mt-6 p-6 bg-slate-700/10 border border-white/10 rounded-xl hidden sm:block">
         <h2 className="text-lg font-bold mb-3">Get Your Resume Reviewed by AI</h2>
-        <p className="text-sm  mb-2">
+        <p className="text-sm mb-2">
           Our AI-powered resume reviewer analyzes your resume for structure, formatting, keywords, and impact — helping you stand out in competitive job markets.
         </p>
-        <p className="text-sm  mb-2">
+        <p className="text-sm mb-2">
           Simply upload your resume, and our system will highlight strengths, point out weaknesses, and suggest improvements based on industry best practices.
         </p>
-        <p className="text-sm ">
+        <p className="text-sm">
           Whether you're a fresher or an experienced professional, you’ll get actionable tips to make your resume shine and increase your chances of landing interviews.
         </p>
       </div>
+
     </div>
   );
 };

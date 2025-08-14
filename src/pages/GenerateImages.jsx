@@ -98,7 +98,7 @@ const GenerateImages = () => {
             {imageStyle.map((item) => (
               <span
                 onClick={() => setSelectedStyle(item)}
-                className={`text-[15px] sm:text-xs px-3 py-0.5 sm:px-4 sm:py-1 border rounded-full cursor-pointer transition-all duration-300 ease-in-out
+                className={`text-xs sm:text-xs px-3 py-0.5 sm:px-4 sm:py-1 border rounded-full cursor-pointer transition-all duration-300 ease-in-out
     ${selectedStyle === item
                     ? 'border-green-500 shadow-md shadow-green-500/30 scale-105'
                     : 'border-gray-400/40 hover:shadow-md hover:shadow-gray-500/30 hover:scale-105'
@@ -183,8 +183,8 @@ const GenerateImages = () => {
                     toast.success("Image downloaded!", {
                       duration: 3000,
                       style: {
-                        background: '#334155',
-                        color: '#ffffff',
+                        background: '',
+                        color: '',
                         border: '1px solid #00AD25'
                       },
                       icon: '✅'
@@ -193,8 +193,8 @@ const GenerateImages = () => {
                     toast.error("Download failed!", {
                       duration: 3000,
                       style: {
-                        background: '#334155',
-                        color: '#ffffff',
+                        background: '',
+                        color: '',
                         border: '1px solid #ff4d4d'
                       },
                       icon: '⚠️'
@@ -211,13 +211,13 @@ const GenerateImages = () => {
         </div>
 
       </div>
-      <div className="mt-6 p-6 bg-slate-700/10 border border-white/10 rounded-xl ">
+      <div className="mt-6 p-6 bg-slate-700/10 border border-white/10 rounded-xl hidden sm:block">
         <h2 className="text-lg font-bold mb-3">Generate Stunning Images with AI</h2>
-        <p className="text-sm  mb-2">
+        <p className="text-sm mb-2">
           Create high-quality, unique images instantly using our AI image generator — perfect for art, design projects, social media, and marketing.
         </p>
-
       </div>
+
     </div>
   );
 }

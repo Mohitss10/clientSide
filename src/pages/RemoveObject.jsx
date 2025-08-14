@@ -104,7 +104,7 @@ const RemoveObject = () => {
 
               <button
                 disabled={loading}
-                className="w-full flex justify-center items-center gap-2 bg-gradient-to-r from-[#450065] to-[#eb37d3]  px-4 py-3 mt-8 text-sm rounded-lg cursor-pointer"
+                className="w-full flex justify-center items-center gap-2 bg-gradient-to-r from-[#76488b] to-[#e898dd]  px-4 py-3 mt-8 text-sm rounded-lg cursor-pointer"
               >
                 {loading ? (
                   <span className="w-4 h-4 my-1 rounded-full border-2 border-t-transparent animate-spin"></span>
@@ -189,18 +189,19 @@ const RemoveObject = () => {
           )}
         </div>
       </div>
-      <div className="mt-6 p-6 bg-slate-700/10 border border-white/10 rounded-xl ">
+      <div className="mt-6 p-6 bg-slate-700/10 border border-white/10 rounded-xl hidden sm:block">
         <h2 className="text-lg font-bold mb-3">Remove Objects from Images Effortlessly</h2>
-        <p className="text-sm  mb-2">
+        <p className="text-sm mb-2">
           Our AI-powered object remover lets you erase unwanted objects from your photos quickly and seamlessly, without leaving any traces.
         </p>
-        <p className="text-sm  mb-2">
+        <p className="text-sm mb-2">
           Simply upload your image, highlight the object you want to remove, and our system will intelligently blend the surrounding background for a natural look.
         </p>
-        <p className="text-sm ">
+        <p className="text-sm">
           Perfect for fixing product shots, travel photos, or personal images — no advanced editing skills required.
         </p>
       </div>
+
     </div>
 
   );

@@ -21,36 +21,36 @@ const WriteArticle = () => {
   const [showConfig, setShowConfig] = useState(true); // start open
   const { getToken } = useAuth();
 
-const onSubmitHandler = async (e) => {
-  e.preventDefault();
+  const onSubmitHandler = async (e) => {
+    e.preventDefault();
 
-  try {
-    setLoading(true);
-    const prompt = `Write an article about ${input} in ${selectedLength.text}`;
-    const token = await getToken();
-    const { data } = await axios.post(
-      '/api/ai/generate-article',
-      { prompt, length: selectedLength.length },
-      {
-        headers: { Authorization: `Bearer ${token}` },
+    try {
+      setLoading(true);
+      const prompt = `Write an article about ${input} in ${selectedLength.text}`;
+      const token = await getToken();
+      const { data } = await axios.post(
+        '/api/ai/generate-article',
+        { prompt, length: selectedLength.length },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+
+      if (data.success) {
+        setContent(data.content);
+
+        // Collapse config only on mobile/tablet after success
+        if (typeof window !== 'undefined' && window.innerWidth < 1024) {
+          setShowConfig(false);
+        }
+      } else {
+        toast.error(data.message);
       }
-    );
-
-    if (data.success) {
-      setContent(data.content);
-
-      // Collapse config only on mobile/tablet after success
-      if (typeof window !== 'undefined' && window.innerWidth < 1024) {
-        setShowConfig(false);
-      }
-    } else {
-      toast.error(data.message);
+    } catch (error) {
+      toast.error(error.message);
     }
-  } catch (error) {
-    toast.error(error.message);
-  }
-  setLoading(false);
-};
+    setLoading(false);
+  };
 
 
   return (
@@ -89,30 +89,30 @@ const onSubmitHandler = async (e) => {
             }}
           >
             <p className="mt-6 text-sm font-medium">Article Topic</p>
-<input
-  onChange={(e) => setInput(e.target.value)}
-  value={input}
-  type="text"
-  className="w-full p-2 mt-2 outline-none text-sm rounded-md border border-slate-400 bg-transparent placeholder:text-slate-500 dark:placeholder:text-slate-400"
-  placeholder="The future of artificial intelligence is..."
-  required
-/>
+            <input
+              onChange={(e) => setInput(e.target.value)}
+              value={input}
+              type="text"
+              className="w-full p-2 mt-2 outline-none text-sm rounded-md border border-slate-400 bg-transparent placeholder:text-slate-500 dark:placeholder:text-slate-400"
+              placeholder="The future of artificial intelligence is..."
+              required
+            />
 
 
             <p className="m-4 text-sm font-medium ">Article Length</p>
             <div className="mt-3 ml-2 flex gap-3 flex-wrap">
               {articalLength.map((item, index) => (
-<span
-  onClick={() => setSelectedLength(item)}
-  className={`text-xs px-4 py-1 border rounded-full cursor-pointer transition-all duration-300 ease-in-out
+                <span
+                  onClick={() => setSelectedLength(item)}
+                  className={`text-xs px-4 py-1 border rounded-full cursor-pointer transition-all duration-300 ease-in-out
     ${selectedLength.text === item.text
-      ? 'border-blue-500 text-blue-400 shadow-md shadow-blue-500/30 scale-105'
-      : 'border-gray-400/40 hover:shadow-md hover:shadow-gray-500/30 hover:scale-105'
-    }`}
-  key={index}
->
-  {item.text}
-</span>
+                      ? 'border-blue-500 text-blue-400 shadow-md shadow-blue-500/30 scale-105'
+                      : 'border-gray-400/40 hover:shadow-md hover:shadow-gray-500/30 hover:scale-105'
+                    }`}
+                  key={index}
+                >
+                  {item.text}
+                </span>
 
               ))}
             </div>
@@ -154,18 +154,19 @@ const onSubmitHandler = async (e) => {
           )}
         </div>
       </div>
-      <div className="mt-6 p-6 bg-slate-700/10 border border-white/10 rounded-xl ">
+      <div className="mt-6 p-6 bg-slate-700/10 border border-white/10 rounded-xl hidden sm:block">
         <h2 className="text-lg font-bold mb-3">Write High-Quality Articles with AI</h2>
-        <p className="text-sm  mb-2">
+        <p className="text-sm mb-2">
           Our AI article writer helps you create engaging, well-structured, and SEO-friendly content in just minutes — perfect for blogs, websites, and social media.
         </p>
-        <p className="text-sm  mb-2">
+        <p className="text-sm mb-2">
           Simply enter your topic or keywords, and our system will generate a complete article with relevant headings, clear formatting, and a natural flow.
         </p>
         <p className="text-sm">
           Save time, boost productivity, and focus on your ideas while AI handles the heavy lifting of writing.
         </p>
       </div>
+
     </div>
   );
 };

@@ -71,8 +71,6 @@ const AiTools = () => {
       toast.error(" Please sign in first to use this awesome AI tool! 🚀", {
         style: {
           text: "center",
-          background: "#334155",
-          color: "#fff",
           borderRadius: "10px",
           padding: "12px",
           whiteSpace: "nowrap",
