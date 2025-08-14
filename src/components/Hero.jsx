@@ -219,16 +219,16 @@ const Hero = () => {
                   src="https://randomuser.me/api/portraits/women/6.jpg"
                   alt=""
                 />
-                <img
+                {/* <img
                   className="inline-block h-8 w-8 rounded-full ring-2 ring-gray-200 hover:scale-105 tranform duration-100"
                   src="https://randomuser.me/api/portraits/men/9.jpg"
                   alt=""
-                />
-                <img
+                /> */}
+                {/* <img
                   className="inline-block h-8 w-8 rounded-full ring-2 ring-gray-200 hover:scale-105 tranform duration-100"
                   src="https://randomuser.me/api/portraits/women/9.jpg"
                   alt=""
-                />
+                /> */}
               </div>
               <div>Join 100+ other members</div>
             </div>
