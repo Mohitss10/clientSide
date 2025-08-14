@@ -53,7 +53,7 @@ const GenerateImages = () => {
 
 
   return (
-    <div className="min-h-[90vh] lg:min-h-[85vh] w-full max-w-full overflow-x-hidden sm:mx-auto">
+    <div className="flex-1 overflow-y-auto scrollbar-hide">
       <div className="flex flex-col lg:flex-row gap-6 w-full max-w-full overflow-x-hidden">
 
         {/* Left Column */}

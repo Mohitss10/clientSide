@@ -51,7 +51,7 @@ const BlogTitles = () => {
 
 
   return (
-    <div className="min-h-[90vh] lg:min-h-[85vh] sm:mx-auto overflow-y-auto scrollbar-hide">
+    <div className="flex-1 overflow-y-auto scrollbar-hide">
       <div className="flex flex-col lg:flex-row gap-6">
         {/* Left Column container */}
         <div
