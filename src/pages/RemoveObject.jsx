@@ -96,7 +96,7 @@ const RemoveObject = () => {
                 onChange={(e) => setObject(e.target.value)}
                 value={object}
                 rows={4}
-                className="w-full p-2 mt-2 outline-none text-sm rounded-md border border-slate-400 bg-transparent text-gray-300 placeholder:text-gray-400"
+                className="w-full p-2 mt-2 outline-none text-sm rounded-md border border-slate-400 bg-transparent  placeholder:text-gray-400"
                 placeholder="e.g., watch or spoon (only a single object name)"
                 required
               />

@@ -14,16 +14,16 @@ const Navbar = () => {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className="fixed z-50 w-full backdrop-blur-2xl flex justify-between items-center py-3 px-4 sm:px-20 xl:px-32"
+      className="fixed z-50 w-full backdrop-blur-2xl flex justify-between items-center py-2 px-4 sm:px-20 xl:px-32"
     >
       {/* Left: Logo */}
       <div
         className="flex items-center gap-2 cursor-pointer"
-        onClick={() => navigate('./Hero')}
+        // onClick={() => navigate('./Hero')}
       >
         <img src={assets.logo} alt="logo" className="w-7" />
         {/* Text only visible on small screens */}
-        <span className="bg-gradient-to-r from-gray-300 via-gray-400 to-gray-500 bg-clip-text text-transparent text-2xl">
+        <span className="font-semibold bg-gradient-to-r from-gray-300 via-gray-400  to-gray-500 bg-clip-text text-transparent text-2xl">
           AIMatrix
         </span>
       </div>
