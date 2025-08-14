@@ -21,12 +21,12 @@ export default function ThemeToggle() {
 
         <div
           onClick={toggleTheme}
-          className={`relative w-15 h-8.5 rounded-full cursor-pointer transition-colors duration-500 ${
+          className={`relative w-14 h-8 rounded-full cursor-pointer transition-colors duration-500 ${
             theme === "dark" ? "bg-gray-700" : "bg-blue-300"
           }`}
         >
           <div
-            className={`absolute top-1 left-1 w-7 h-7 rounded-full flex items-center justify-center bg-white shadow-md transform transition-transform duration-500 ${
+            className={`absolute top-1 left-1 w-6 h-6 rounded-full flex items-center justify-center bg-white shadow-md transform transition-transform duration-500 ${
               theme === "dark" ? "translate-x-6" : "translate-x-0"
             }`}
           >
@@ -38,7 +38,7 @@ export default function ThemeToggle() {
 {/* Desktop: only toggle */}
 <div
   onClick={toggleTheme}
-  className={`hidden sm:flex items-center justify-center w-14 h-7 rounded-full cursor-pointer transition-colors duration-500 ${
+  className={`hidden sm:flex items-center justify-center w-14 h-8 rounded-full cursor-pointer transition-colors duration-500 ${
     theme === "dark" ? "bg-gray-700" : "bg-blue-300"
   }`}
 >
