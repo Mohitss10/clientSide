@@ -127,7 +127,7 @@ const AiTools = () => {
           </h3>
           <p
             className={`mt-2 ${tool.title === "AIMatrix"
-              ? "text-sm sm:text-sm max-[1023px]:text-xs"
+              ? "text-[20px] sm:text-[18px] max-[1023px]:text-[18px]"
               : "text-sm max-[1023px]:text-xs"
             }`}
           >
