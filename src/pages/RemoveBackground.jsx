@@ -55,7 +55,7 @@ const RemoveBackground = () => {
   };
 
   return (
-    <div className="flex-1 overflow-y-auto  scrollbar-hide">
+    <div className="flex-1 overflow-y-auto scrollbar-hide">
       <div className="flex flex-col lg:flex-row gap-6">
 
         {/* Left Column */}
