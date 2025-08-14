@@ -67,7 +67,7 @@ const Layout = () => {
           `}
         >
           {/* Close Button (Mobile only) */}
-          <div className="sm:hidden flex justify-end p-4">
+          <div className="sm:hidden mr-2 flex justify-end p-4">
             <X
               onClick={() => setSidebar(false)}
               className="h-7 w-7 cursor-pointer hover:text-red-400 transition-colors"
