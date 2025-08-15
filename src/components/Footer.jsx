@@ -37,7 +37,7 @@ const Footer = () => {
                         </ul>
 
                         <p className="mt-8 text-xs  sm:mt-0">
-                            &copy; 2022. Company Name. All rights reserved.
+                            &copy; 2025 | AIMatrix  | All rights reserved.
                         </p>
                     </div>
                 </div>
