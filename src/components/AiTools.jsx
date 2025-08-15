@@ -23,7 +23,7 @@ const aiToolsData = [
   },
   {
     title: "AI Image Generation",
-    description: "Create stunning visuals with our AI image generation tool.",
+    description: "Create Stunning, High-Resolution Visuals in Seconds with Our Advanced AI Image Generation Tool.",
     Icon: Image,
     path: "/ai/generate-images",
     colSpan: "sm:col-span-2",
@@ -46,7 +46,7 @@ const aiToolsData = [
   },
   {
     title: "Object Removal",
-    description: "Remove unwanted objects from your images seamlessly.",
+    description: "Effortlessly Remove Unwanted Objects from Your Images with Our Smart AI-Powered Tool.",
     Icon: Scissors,
     path: "/ai/remove-object",
     colSpan: "sm:col-span-3",
