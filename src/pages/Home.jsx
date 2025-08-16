@@ -55,7 +55,7 @@ const Home = () => {
         initial={{ opacity: 0, y: 40 }}
         animate={showButton ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
-        className="fixed bottom-5 right-5 p-3 rounded-full shadow-lg bg-white text-black hover:scale-110 transition-transform duration-300 ease-in-out"
+        className="fixed bottom-5 right-5 p-3 rounded-full shadow-lg  hover:scale-110 transition-transform duration-300 ease-in-out"
       >
         <FaArrowUp size={18} />
       </motion.button>
