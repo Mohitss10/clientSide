@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FaArrowUp } from "react-icons/fa";
-import { motion } from "framer-motion"; 
+import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import AiTools from "../components/AiTools";
@@ -22,41 +22,70 @@ const Home = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // Animation variants
+  // Smooth section animation
   const fadeInUp = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    hidden: { opacity: 0, y: 80 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }, // cubic-bezier for smoother easing
+    },
   };
 
   return (
     <>
       <Navbar />
 
-      {/* Each section wrapped in motion.div */}
-      <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} variants={fadeInUp}>
+      {/* Hero Section */}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.2 }}
+        variants={fadeInUp}
+      >
         <Hero />
       </motion.div>
 
-      <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} variants={fadeInUp}>
+      {/* AI Tools Section */}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.2 }}
+        variants={fadeInUp}
+      >
         <AiTools />
       </motion.div>
 
-      <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} variants={fadeInUp}>
+      {/* Plan Section */}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.2 }}
+        variants={fadeInUp}
+      >
         <Plan />
       </motion.div>
 
-      <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} variants={fadeInUp}>
+      {/* Footer Section */}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.2 }}
+        variants={fadeInUp}
+      >
         <Footer />
       </motion.div>
 
       {/* Back to Top Button */}
-      <button
+      <motion.button
         onClick={scrollToTop}
-        className={`fixed bottom-5 right-5 p-3 rounded-full shadow-lg hover:shadow-lg hover:scale-105 transition-all duration-300 ease-in-out transform 
-          ${showButton ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5 pointer-events-none"}`}
+        initial={{ opacity: 0, y: 40 }}
+        animate={showButton ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+        transition={{ duration: 0.4, ease: "easeInOut" }}
+        className="fixed bottom-5 right-5 p-3 rounded-full shadow-lg bg-white text-black hover:scale-110 transition-transform duration-300 ease-in-out"
       >
         <FaArrowUp size={18} />
-      </button>
+      </motion.button>
     </>
   );
 };
