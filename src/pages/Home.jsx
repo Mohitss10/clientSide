@@ -22,51 +22,24 @@ const Home = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // Smooth section animation
+  // Smooth animation only for Footer
   const fadeInUp = {
     hidden: { opacity: 0, y: 80 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }, // cubic-bezier for smoother easing
+      transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] },
     },
   };
 
   return (
     <>
       <Navbar />
+      <Hero />
+      <AiTools />
+      <Plan />
 
-      {/* Hero Section */}
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.2 }}
-        variants={fadeInUp}
-      >
-        <Hero />
-      </motion.div>
-
-      {/* AI Tools Section */}
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.2 }}
-        variants={fadeInUp}
-      >
-        <AiTools />
-      </motion.div>
-
-      {/* Plan Section */}
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.2 }}
-        variants={fadeInUp}
-      >
-        <Plan />
-      </motion.div>
-
-      {/* Footer Section */}
+      {/* Footer with smooth animation */}
       <motion.div
         initial="hidden"
         whileInView="visible"
