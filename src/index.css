@@ -70,13 +70,13 @@ html::-webkit-scrollbar {
 
 /* Dark mode */
 body.dark {
-  background-color: #081229;
+  background-color: #060d1d;
   color: #cbd5e1;
 }
 
 /* Light mode */
 body.light {
-  background-color: white;
+  background-color: rgb(252, 243, 243);
   color: rgb(73, 90, 107);
 }
 
