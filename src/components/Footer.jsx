@@ -3,7 +3,7 @@ import { assets } from '../assets/assets'
 
 const Footer = () => {
     return (
-        <footer className="py-6 sm:py-12 px-4 sm:px-20 xl:px-32 lg:grid lg:grid-cols-5">
+        <footer className="py-6 mt-8 sm:py-12 px-4 sm:px-20 xl:px-32 lg:grid lg:grid-cols-5">
             <div className="relative block h-32 lg:col-span-2 lg:h-full">
                 <img
                     src="https://nation.ai/wp-content/uploads/2025/04/A-futuristic-digital-workspace-filled-with-holographic-interfaces-and-AI-generated-visuals_-a-person-1400x800.webp"
