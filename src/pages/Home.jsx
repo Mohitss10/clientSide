@@ -51,14 +51,15 @@ const Home = () => {
 
       {/* Back to Top Button */}
       <motion.button
-        onClick={scrollToTop}
-        initial={{ opacity: 0, y: 40 }}
-        animate={showButton ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-        transition={{ duration: 0.4, ease: "easeInOut" }}
-        className="fixed bottom-5 right-5 p-3 rounded-full shadow-lg  hover:scale-110 transition-transform duration-300 ease-in-out"
-      >
-        <FaArrowUp size={18} />
-      </motion.button>
+  onClick={scrollToTop}
+  initial={{ opacity: 0, y: 100 }} // start hidden below
+  animate={showButton ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }} // slide up or down
+  transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }} // smooth easing
+  className="fixed bottom-5 right-5 p-3 rounded-full shadow-xl hover:scale-110 transition-transform duration-300 ease-in-out "
+>
+  <FaArrowUp size={18} />
+</motion.button>
+
     </>
   );
 };
